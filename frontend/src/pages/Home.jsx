@@ -1,5 +1,5 @@
 import Search from "../components/Search";
-
+import PromoList from "../components/PromoList";
 
 const Home = (props) => {
 
@@ -8,6 +8,7 @@ const Home = (props) => {
   return (
     <div>
       <Search onSubmitSearch={onSubmitSearch}/>
+      <PromoList />
     </div>
   )
 }

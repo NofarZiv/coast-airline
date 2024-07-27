@@ -3,12 +3,13 @@ import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Select from './Select';
 
 const Search = (props) => {
 
   const { onSubmitSearch } = props;
 
-  const { register, handleSubmit, formState: { errors }, control } = useForm();
+  const { register, handleSubmit, formState: { errors }, control, setValue } = useForm();
 
   const [startDate, setStartDate] = useState();
   const [endDate, setEndDate] = useState();
@@ -103,10 +104,11 @@ const Search = (props) => {
       />
       <p>{errors.return_date?.message}</p>
 
-      <input {...register("passengers", { required: "Please select number of passengers" })} placeholder="Passenger"></input>
-      <p>{errors.passengers?.message}</p>
+      
+      <Select register={register} errors={errors} setValue={setValue}/>
 
       <button className="button" type="submit">Find me a flight</button>
+
     </form>
   )
 }
