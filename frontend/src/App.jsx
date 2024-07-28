@@ -3,8 +3,10 @@ import { Routes, Route } from "react-router-dom";
 import NavBar from './components/NavBar';
 import Home from './pages/Home';
 import Form from './pages/Form';
+import Payment from './pages/Payment';
 import axios from 'axios';
 import './App.css'
+
 
 function App() {
 
@@ -30,6 +32,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home onSubmitSearch={onSubmitSearch}/>} />
         <Route path="/form" element={<Form searchData={searchData}/>} />
+        <Route path="/payment" element={<Payment />} />
       </Routes>
     </>
   )
