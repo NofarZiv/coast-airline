@@ -31,12 +31,12 @@ const Payment = () => {
         <svg {...getCardImageProps({ images })} />
         <input placeholder="Card number" {...register("card", { required: "Please enter your credit card number",
     minLength: {
-      value: 12,
-      message: "Card number must be exactly 12 digits"
+      value: 16,
+      message: "Card number must be exactly 16 digits"
     },
     maxLength: {
-      value: 12,
-      message: "Card number must be exactly 12 digits"
+      value: 16,
+      message: "Card number must be exactly 16 digits"
     }})} {...getCardNumberProps()}></input>
         <p>{errors.card?.message}</p>
         
@@ -54,7 +54,7 @@ const Payment = () => {
           pattern: { 
             value: /^(0[1-9]|1[0-2])\/([0-9]{2})$/, 
             message: "Expiry date must be in MM/YY format" 
-          }
+          }, validate: validateExpiryDate
         })}></input>
         <p>{errors.expiry?.message}</p>
 
