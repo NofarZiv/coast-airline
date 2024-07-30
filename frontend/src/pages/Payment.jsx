@@ -15,14 +15,6 @@ const Payment = () => {
       <option key={index} value={country}>{country}</option>
     ))
 
-    const validateExpiryDate = (value) => {
-    const [month, year] = value.split('/');
-    const expiryDate = new Date(`20${year}`, month - 1); // Month is 0-indexed in Date
-    const now = new Date();
-    now.setHours(0, 0, 0, 0); // Set to the beginning of the day for comparison
-    return expiryDate >= now || "Expiry date cannot be in the past";
-    };
-
       const {
         getCardNumberProps,
         getCardImageProps,
@@ -60,7 +52,7 @@ const Payment = () => {
         <input placeholder="Expiry MM/YY" {...register("expiry", {
           required: "Please enter the payment card expiry date", 
           pattern: { 
-            value: /^(0[1-9]|1[0-2])\/?([0-9]{2})$/, 
+            value: /^(0[1-9]|1[0-2])\/([0-9]{2})$/, 
             message: "Expiry date must be in MM/YY format" 
           }
         })}></input>

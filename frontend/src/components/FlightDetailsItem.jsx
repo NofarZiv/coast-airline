@@ -3,22 +3,19 @@ import FlightDetailModal from "./FlightDetailModal";
 
 const FlightDetailsItem = (props) => {
 
-  const {originAirport, departureTime, destinationAirport, arrivalTime, price, flightNumber, onFlight, searchResult} = props;
+  const { originAirport, departureTime, destinationAirport, arrivalTime, price, flightNumber, flights, onSelectFlight } = props;
 
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleArticleClick = (e) => {
-    // Check if the click target is not the button
-    if (e.target.tagName !== 'BUTTON') {
-      onFlight(flightNumber);
-    }
+  const handleArticleClick = () => {
+    onSelectFlight(flightDetails)
   }
 
   const onClickFlight = () => {
     setIsOpen(!isOpen)
   }
 
-  const flightDetails = searchResult.find(flight => flight.flight_number === flightNumber);
+  const flightDetails = flights.find(flight => flight.flight_number === flightNumber);
 
   return(
     <>
@@ -30,7 +27,7 @@ const FlightDetailsItem = (props) => {
       <span>{price}</span>
       <button onClick={onClickFlight}>Details</button>
     </article>
-    {isOpen && flightDetails && <FlightDetailModal searchResult={flightDetails} onClickFlight={onClickFlight} />}
+    {isOpen && flightDetails && <FlightDetailModal flights={flightDetails} onClickFlight={onClickFlight} />}
     </>
   )
 }
