@@ -8,6 +8,7 @@ import Departure from './pages/Departure';
 import Return from './pages/Return';
 import Summary from './pages/Summary';
 import OrderConfirmation from './pages/OrderConfirmation';
+import Seats from './pages/Seats';
 import axios from 'axios';
 import './App.css'
 
@@ -18,9 +19,12 @@ function App() {
   const [searchData, setSearchData] = useState();
   const [selectedDepartureFlight, setSelectedDepartureFlight] = useState(null);
   const [selectedReturnFlight, setSelectedReturnFlight] = useState(null);
+  const [seat, setSeat] = useState([]);
+  const [email, setEmail] = useState();
+
+  console.log(seat)
 
   const navigate = useNavigate()
-  const [email, setEmail] = useState();
 
 
   const onSubmitSearch = async (data) => {
@@ -48,6 +52,16 @@ function App() {
     }
   }
 
+  const onSelectedSeat = (seat) => {
+    setSeat((prevSeats) => {
+      if (prevSeats.includes(seat)) {
+        return prevSeats.filter((s) => s !== seat);
+      } else {
+        return [...prevSeats, seat];
+      }
+    });
+  }
+
 
   return (
     <>
@@ -60,6 +74,7 @@ function App() {
         <Route path="/return" element={<Return searchResult={searchResult} onSelectFlight={setSelectedReturnFlight} />} />
         <Route path="/summary" element={<Summary departureFlight={selectedDepartureFlight} returnFlight={selectedReturnFlight} handleConfirmBooking={handleConfirmBooking } searchData={searchData}/>} />
         <Route path="/order-confirmation" element={<OrderConfirmation email={email} />} />
+        <Route path="/seats" element={<Seats onSelectedSeat={onSelectedSeat} />} />
       </Routes>
     </>
   )
