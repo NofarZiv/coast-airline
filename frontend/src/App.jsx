@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import NavBar from './components/NavBar';
 import Home from './pages/Home';
 import Form from './pages/Form';
@@ -18,13 +18,16 @@ function App() {
   const [selectedDepartureFlight, setSelectedDepartureFlight] = useState(null);
   const [selectedReturnFlight, setSelectedReturnFlight] = useState(null);
 
+  const navigate = useNavigate()
 
   const onSubmitSearch = async (data) => {
     console.log(data)
     setSearchData(data)
     try {
-    const res = await axios.get('/flights', { params: data })
+    const res = await axios.get('/api/flights', { params: data })
       setSearchResult(res.data)
+      console.log(res.data[0])
+      navigate('/departure')
     } catch (error) {
       console.error('There was an error sending the data!', error);
     }
