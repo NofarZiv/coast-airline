@@ -7,13 +7,14 @@ import '../styles/Form.css';
 
 const Form = (props) => {
 
-  const { searchData } = props;
+  const { searchData, email } = props;
 
   const { register, handleSubmit, formState: { errors } } = useForm();
 
 
   const onSubmitForm = async (data) => {
     console.log(data)
+    email(data.email)
     try {
     const res = await axios.post('/?', data)
     } catch (error) {
