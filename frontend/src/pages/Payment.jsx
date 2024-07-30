@@ -15,6 +15,14 @@ const Payment = () => {
       <option key={index} value={country}>{country}</option>
     ))
 
+    const validateExpiryDate = (value) => {
+      const [month, year] = value.split('/');
+      const expiryDate = new Date(`20${year}`, month - 1); // Month is 0-indexed in Date
+      const now = new Date();
+      now.setHours(0, 0, 0, 0); // Set to the beginning of the day for comparison
+      return expiryDate >= now || "Expiry date cannot be in the past";
+      };
+
       const {
         getCardNumberProps,
         getCardImageProps,
