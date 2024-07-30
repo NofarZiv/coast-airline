@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Form from './pages/Form';
 import Payment from './pages/Payment';
 import Departure from './pages/Departure';
+import OrderConfirmation from './pages/OrderConfirmation';
 import axios from 'axios';
 import './App.css'
 
@@ -44,6 +45,8 @@ function App() {
       price: 350.00}]);
   const [searchData, setSearchData] = useState();
 
+  const [email, setEmail] = useState();
+
 
   const onSubmitSearch = async (data) => {
     console.log(data)
@@ -70,9 +73,10 @@ function App() {
       <NavBar />
       <Routes>
         <Route exact path="/" element={<Home onSubmitSearch={onSubmitSearch}/>} />
-        <Route path="/form" element={<Form searchData={searchData}/>} />
+        <Route path="/form" element={<Form searchData={searchData} email={setEmail} />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/departure" element={<Departure searchResult={searchResult} onFlight={onFlight} />} />
+        <Route path="/order-confirmation" element={<OrderConfirmation email={email} />} />
       </Routes>
     </>
   )
