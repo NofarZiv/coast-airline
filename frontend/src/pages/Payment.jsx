@@ -2,6 +2,11 @@ import { useForm } from "react-hook-form";
 import '../styles/Payment.css';
 import countries from "../data";
 import { useCreditCardValidator, images } from 'react-creditcard-validator';
+import {Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import {loadStripe} from '@stripe/stripe-js';
+import axios from 'axios';
+
+const stripePromise = loadStripe('pk_test_51PYXLtRoF1R8UIs1w2HY2yM5CYbgTe8dvVqcv43Hs5Aq7p26vmop9GpItWsknvXci5f7ZfREn2GFbDeyOtMpSnDl00oEtrRjG1');
 
 const Payment = () => {
 
@@ -10,6 +15,9 @@ const Payment = () => {
   const onSubmitPayment = (data) => {
     console.log(data)
   }
+
+  const stripe = useStripe();
+  const elements = useElements();
 
     const countriesList = countries.map((country, index) => (
       <option key={index} value={country}>{country}</option>
@@ -31,6 +39,7 @@ const Payment = () => {
 
 
   return (
+    <Elements stripe={stripePromise}>
     <form className={`credit-card-form`} onSubmit={handleSubmit(onSubmitPayment)}>
       <h2>Payment</h2>
       <div className="credit-card-input">
@@ -93,6 +102,7 @@ const Payment = () => {
       <div>Total: total</div>
       <button className="button">Next</button>
     </form>
+    </Elements>
   )
 }
 
