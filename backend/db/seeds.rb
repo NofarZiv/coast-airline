@@ -2,9 +2,9 @@ require 'date'
 
 # Create Aircraft
 aircrafts = Aircraft.create([
-  { number_of_seats: 150, aircraft_number: 'AC123' },
-  { number_of_seats: 200, aircraft_number: 'AC456' },
-  { number_of_seats: 180, aircraft_number: 'AC789' }
+  { number_of_seats: 162, aircraft_number: 'AC123' },
+  { number_of_seats: 162, aircraft_number: 'AC456' },
+  { number_of_seats: 162, aircraft_number: 'AC789' }
 ])
 
 # Define dates and times
@@ -83,48 +83,18 @@ while departures < 4
   departures += 1
 end
 
-# Create Passengers
-passengers = Passenger.create([
-  { first_name: 'Michael', last_name: 'Brown', passport_number: 'A1234567', date_of_birth: '1985-05-15' },
-  { first_name: 'Sarah', last_name: 'Miller', passport_number: 'B2345678', date_of_birth: '1990-10-22' },
-  { first_name: 'Robert', last_name: 'Davis', passport_number: 'C3456789', date_of_birth: '1978-07-30' }
-])
-
-# Create Checkouts
-checkouts = Checkout.create([
-  { no_of_persons: 1, price_per_person: 500, total_price: 500 },
-  { no_of_persons: 1, price_per_person: 700, total_price: 700 },
-  { no_of_persons: 1, price_per_person: 600, total_price: 600 }
-])
-
-# Create Orders
-# Randomly pair flights and passengers
-flights.each_with_index do |flight, index|
-  Order.create(
-    passenger_id: passengers[index % passengers.size].id,
-    outbound_flight_id: flight.id,
-    return_flight_id: Flight.where(
-      origin_airport: flight.destination_airport,
-      destination_airport: flight.origin_airport,
-      departure_date: flight.departure_date + 1
-    ).first.id,
-    seat_id: index + 1,
-    checkout_id: checkouts[index % checkouts.size].id,
-    order_price: flight.flight_price
-  )
-end
-
 # Create Seats
 seats = []
 aircrafts.each do |aircraft|
-  Flight.where(aircraft_id: aircraft.id).each do |flight|
-    (1..aircraft.number_of_seats).to_a.each do |seat_number|
-      seats << Seat.create(
+  (1..27).each do |row|  # Assuming 27 rows, 6 seats per row
+    ['A', 'B', 'C', 'D', 'E', 'F'].each do |seat_letter|
+      Seat.create!(
         aircraft_id: aircraft.id,
-        flight_id: flight.id,
-        seat_number: "#{seat_number}A",
-        available: [true, false].sample
+        seat_number: "#{row}#{seat_letter}",
+        available: true  # All seats start as empty
       )
     end
   end
 end
+
+puts "Seeding complete! Aircraft, flights, and seats have been initialized."
