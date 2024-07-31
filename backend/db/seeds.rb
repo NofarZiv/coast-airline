@@ -1,59 +1,100 @@
-# db/seeds.rb
+require 'date'
 
 # Create Aircraft
 aircrafts = Aircraft.create([
-  { number_of_seats: 150, aircraft_number: 'AC123' },
-  { number_of_seats: 200, aircraft_number: 'AC456' },
-  { number_of_seats: 180, aircraft_number: 'AC789' }
+  { number_of_seats: 162, aircraft_number: 'AC123' },
+  { number_of_seats: 162, aircraft_number: 'AC456' },
+  { number_of_seats: 162, aircraft_number: 'AC789' }
 ])
+
+# Define dates and times
+start_date = Date.parse('2024-08-16')
+departure_times = ['06:00', '12:00', '18:00']
+
+# Define airports
+origins = ['Montreal', 'Toronto', 'Vancouver']
+destinations = [
+  'Nassau', 'Bridgetown', 'Kingston', 'Santo Domingo', 'San Juan', 'Port of Spain',
+  'Havana', 'Oranjestad', 'Philipsburg', 'Castries', 'St. George\'s', 'Basseterre',
+  'Roseau', 'Gustavia', 'Road Town', 'Playa del Carmen', 'Tulum', 'Cozumel',
+  'Isla Mujeres', 'Puerto Morelos', 'Akumal', 'Puerto Aventuras'
+]
+
+# Initialize flight number counter
+$flight_number_counter = 0
+
+# Helper function to generate unique flight numbers
+def generate_unique_flight_number
+  $flight_number_counter += 1
+  "F#{format('%04d', $flight_number_counter)}"
+end
+
+# Helper function to generate random terminals
+def random_terminal
+  "#{('A'..'Z').to_a.sample}#{rand(1..9)}"
+end
 
 # Create Flights
-flights = Flight.create([
-  { aircraft_id: aircrafts[0].id, flight_number: 'FL123', pilot_name: 'John Doe', departure_date: '2024-08-01', departure_time: '08:00', origin_airport: 'Montreal', destination_airport: 'Nassau', arrival_date: '2024-08-01', arrival_time: '12:00', flight_duration: '4h', wifi_available: true},
-  {
-    aircraft_id: aircrafts[1].id, 
-    flight_number: 'FL124', 
-    pilot_name: 'John Doe',  
-    departure_date: '2024-08-03', 
-    departure_time: '14:00',  
-    origin_airport: 'Nassau',
-    destination_airport: 'Montreal',
-    arrival_date: '2024-08-03',
-    arrival_time: '18:00',  
-    flight_duration: '4h',
-    wifi_available: true
-},
-  { aircraft_id: aircrafts[2].id, flight_number: 'FL456', pilot_name: 'Jane Smith', departure_date: '2024-08-02', departure_time: '09:00', origin_airport: 'Toronto', destination_airport: 'Bridgetown', arrival_date: '2024-08-02', arrival_time: '14:00', flight_duration: '5h', wifi_available: false },
+flights = []
+departures = 0
+
+while departures < 4
+  origin = origins.sample
+  destination = destinations.sample
+  departure_time = departure_times.sample
+  flight_number = generate_unique_flight_number
+  arrival_time = (DateTime.parse("#{start_date} #{departure_time}") + Rational(4, 24)).strftime('%H:%M')
+
+  flight = Flight.create(
+    aircraft_id: aircrafts.sample.id,
+    flight_number: flight_number,
+    pilot_name: "Pilot #{rand(1..100)}",
+    departure_date: start_date,
+    departure_time: departure_time,
+    departure_terminal: random_terminal,
+    origin_airport: origin,
+    destination_airport: destination,
+    arrival_date: start_date,
+    arrival_time: arrival_time,
+    arrival_terminal: random_terminal,
+    flight_duration: rand(60..480), # in minutes
+    flight_price: rand(100..500).to_d,
+    wifi_available: [true, false].sample
+  )
   
-])
-
-# Create Passengers
-passengers = Passenger.create([
-  { first_name: 'Michael', last_name: 'Brown', passport_number: 'A1234567', date_of_birth: '1985-05-15' },
-  { first_name: 'Sarah', last_name: 'Miller', passport_number: 'B2345678', date_of_birth: '1990-10-22' },
-  { first_name: 'Robert', last_name: 'Davis', passport_number: 'C3456789', date_of_birth: '1978-07-30' }
-])
-
-# Create Checkouts
-checkouts = Checkout.create([
-  { no_of_persons: 1, price_per_person: 500, total_price: 500 },
-  { no_of_persons: 1, price_per_person: 700, total_price: 700 },
-  { no_of_persons: 1, price_per_person: 600, total_price: 600 }
-])
-
-# Create Orders
-orders = Order.create([
-  { passenger_id: passengers[0].id, outbound_flight_id: flights[0].id, return_flight_id: flights[1].id, seat_id: 1, checkout_id: checkouts[0].id, price: 500 },
-  { passenger_id: passengers[1].id, outbound_flight_id: flights[1].id, return_flight_id: flights[2].id, seat_id: 2, checkout_id: checkouts[1].id, price: 700 },
-  { passenger_id: passengers[2].id, outbound_flight_id: flights[2].id, return_flight_id: flights[0].id, seat_id: 3, checkout_id: checkouts[2].id, price: 600 }
-])
+  # Return flight
+  Flight.create!(
+    aircraft_id: flight.aircraft_id,
+    flight_number: "R#{flight_number}",
+    pilot_name: "Pilot #{rand(101..200)}",
+    departure_date: start_date + 1, # Assuming a 1-day return
+    departure_time: departure_time,
+    departure_terminal: random_terminal,
+    origin_airport: destination,
+    destination_airport: origin,
+    arrival_date: start_date + 1,
+    arrival_time: arrival_time,
+    arrival_terminal: random_terminal,
+    flight_duration: flight.flight_duration,
+    flight_price: flight.flight_price,
+    wifi_available: flight.wifi_available
+  )
+  
+  departures += 1
+end
 
 # Create Seats
-seats = Seat.create([
-  { aircraft_id: aircrafts[0].id, flight_id: flights[0].id, seat_number: '12A', available: false },
-  { aircraft_id: aircrafts[1].id, flight_id: flights[1].id, seat_number: '14B', available: false },
-  { aircraft_id: aircrafts[2].id, flight_id: flights[2].id, seat_number: '16C', available: false },
-  { aircraft_id: aircrafts[0].id, flight_id: flights[0].id, seat_number: '18D', available: true },
-  { aircraft_id: aircrafts[1].id, flight_id: flights[1].id, seat_number: '20E', available: true },
-  { aircraft_id: aircrafts[2].id, flight_id: flights[2].id, seat_number: '22F', available: true }
-])
+seats = []
+aircrafts.each do |aircraft|
+  (1..27).each do |row|  # Assuming 27 rows, 6 seats per row
+    ['A', 'B', 'C', 'D', 'E', 'F'].each do |seat_letter|
+      Seat.create!(
+        aircraft_id: aircraft.id,
+        seat_number: "#{row}#{seat_letter}",
+        available: true  # All seats start as empty
+      )
+    end
+  end
+end
+
+puts "Seeding complete! Aircraft, flights, and seats have been initialized."
