@@ -9,9 +9,22 @@ aircrafts = Aircraft.create([
 
 # Create Flights
 flights = Flight.create([
-  { aircraft_id: aircrafts[0].id, flight_number: 'FL123', pilot_name: 'John Doe', departure_date: '2024-08-01', departure_time: '08:00', origin_airport: 'Montreal', destination_airport: 'Nassau', arrival_date: '2024-08-01', arrival_time: '12:00', flight_duration: '4h', wifi_available: true },
-  { aircraft_id: aircrafts[1].id, flight_number: 'FL456', pilot_name: 'Jane Smith', departure_date: '2024-08-02', departure_time: '09:00', origin_airport: 'Toronto', destination_airport: 'Bridgetown', arrival_date: '2024-08-02', arrival_time: '14:00', flight_duration: '5h', wifi_available: false },
-  { aircraft_id: aircrafts[2].id, flight_number: 'FL789', pilot_name: 'Alice Johnson', departure_date: '2024-08-03', departure_time: '10:00', origin_airport: 'Vancouver', destination_airport: 'Kingston', arrival_date: '2024-08-03', arrival_time: '16:00', flight_duration: '6h', wifi_available: true }
+  { aircraft_id: aircrafts[0].id, flight_number: 'FL123', pilot_name: 'John Doe', departure_date: '2024-08-01', departure_time: '08:00', origin_airport: 'Montreal', destination_airport: 'Nassau', arrival_date: '2024-08-01', arrival_time: '12:00', flight_duration: '4h', wifi_available: true},
+  {
+    aircraft_id: aircrafts[1].id, 
+    flight_number: 'FL124', 
+    pilot_name: 'John Doe',  
+    departure_date: '2024-08-03', 
+    departure_time: '14:00',  
+    origin_airport: 'Nassau',
+    destination_airport: 'Montreal',
+    arrival_date: '2024-08-03',
+    arrival_time: '18:00',  
+    flight_duration: '4h',
+    wifi_available: true
+},
+  { aircraft_id: aircrafts[2].id, flight_number: 'FL456', pilot_name: 'Jane Smith', departure_date: '2024-08-02', departure_time: '09:00', origin_airport: 'Toronto', destination_airport: 'Bridgetown', arrival_date: '2024-08-02', arrival_time: '14:00', flight_duration: '5h', wifi_available: false },
+  
 ])
 
 # Create Passengers

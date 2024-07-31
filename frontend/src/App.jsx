@@ -19,10 +19,12 @@ function App() {
   const [searchData, setSearchData] = useState();
   const [selectedDepartureFlight, setSelectedDepartureFlight] = useState(null);
   const [selectedReturnFlight, setSelectedReturnFlight] = useState(null);
-  const [seat, setSeat] = useState([]);
+  const [seatDeparture, setSeatDeparture] = useState([]);
+  const [seatReturn, setSeatReturn] = useState([]);
   const [email, setEmail] = useState();
 
-  console.log(seat)
+  console.log(seatDeparture)
+  console.log(seatReturn)
 
   const navigate = useNavigate()
 
@@ -33,7 +35,7 @@ function App() {
     try {
     const res = await axios.get('/api/flights', { params: data })
       setSearchResult(res.data)
-      console.log(res.data[0])
+      console.log(res.data)
       navigate('/departure')
     } catch (error) {
       console.error('There was an error sending the data!', error);
@@ -52,15 +54,18 @@ function App() {
     }
   }
 
-  const onSelectedSeat = (seat) => {
-    setSeat((prevSeats) => {
-      if (prevSeats.includes(seat)) {
-        return prevSeats.filter((s) => s !== seat);
-      } else {
-        return [...prevSeats, seat];
-      }
-    });
-  }
+  const handleSeatsSelection = async () => {
+    try {
+      await axios.post('/api/seat-selection', {
+        seatDeparture,
+        seatReturn
+      });
+      
+    } catch (error) {
+      console.error('Error submitting seat selection:', error);
+      
+    }
+  };
 
 
   return (
@@ -74,7 +79,7 @@ function App() {
         <Route path="/return" element={<Return searchResult={searchResult} onSelectFlight={setSelectedReturnFlight} />} />
         <Route path="/summary" element={<Summary departureFlight={selectedDepartureFlight} returnFlight={selectedReturnFlight} handleConfirmBooking={handleConfirmBooking } searchData={searchData}/>} />
         <Route path="/order-confirmation" element={<OrderConfirmation email={email} />} />
-        <Route path="/seats" element={<Seats onSelectedSeat={onSelectedSeat} />} />
+        <Route path="/seats" element={<Seats setSeatDeparture={setSeatDeparture} setSeatReturn={setSeatReturn} handleSeatsSelection={handleSeatsSelection} />} />
       </Routes>
     </>
   )

@@ -1,16 +1,50 @@
 import Seat from "../components/Seat";
+import { useState, useEffect } from "react";
 
 const Seats = (props) => {
 
-  const { onSelectedSeat } = props;
+  const { setSeatDeparture, setSeatReturn, handleSeatsSelection } = props;
 
+  const [isDeparture, setIsDeparture] = useState(true);
+  const [initialSwitch, setInitialSwitch] = useState(false);
+
+  
+  const onSelectedSeat = (seat) => {
+    if (isDeparture) {
+      setSeatDeparture((prevSeats) => {
+        if (prevSeats.includes(seat)) {
+          return prevSeats.filter((s) => s !== seat);
+        } else {
+          return [...prevSeats, seat];
+        }
+      });
+    } else {
+      setSeatReturn((prevSeats) => {
+        if (prevSeats.includes(seat)) {
+          return prevSeats.filter((s) => s !== seat);
+        } else {
+          return [...prevSeats, seat];
+        }
+      });
+    }
+  };
+
+  
+  const handleToggle = () => {
+    setIsDeparture(!isDeparture);
+  };
+
+  
 
   return(
     <div>
-      <button>Departure</button>
-      <button>Return</button>
-      <Seat onSelectedSeat={onSelectedSeat} />
-      <button>Next</button>
+      <button onClick={handleToggle} disabled={isDeparture}>Departure</button>
+      <button onClick={handleToggle} disabled={!isDeparture}>Return</button>
+      <Seat
+        key={isDeparture ? 'departure' : 'return'}
+        onSelectedSeat={onSelectedSeat}
+      />
+      <button onClick={handleSeatsSelection}>Next</button>
     </div>
   )
 }

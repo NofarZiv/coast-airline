@@ -20,9 +20,9 @@ const Search = (props) => {
 
       <select {...register("origin_airport", { required: "Please select a valid point of origin" })}>
         <option value="">Where to?</option>
-        <option value="toronto">Toronto</option>
-        <option value="vancouver">Vancouver</option>
-        <option value="montreal">Montreal</option>
+        <option value="Toronto">Toronto</option>
+        <option value="Vancouver">Vancouver</option>
+        <option value="Montreal">Montreal</option>
         <option value="Nassau">Nassau, The Bahamas</option>
         <option value="Bridgetown">Bridgetown, Barbados</option>
         <option value="Kingston">Kingston, Jamaica</option>
@@ -42,9 +42,9 @@ const Search = (props) => {
 
       <select {...register("destination_airport", { required: "Please select a valid destination" })}>
         <option value="">Where from?</option>
-        <option value="toronto">Toronto</option>
-        <option value="vancouver">Vancouver</option>
-        <option value="montreal">Montreal</option>
+        <option value="Toronto">Toronto</option>
+        <option value="Vancouver">Vancouver</option>
+        <option value="Montreal">Montreal</option>
         <option value="Nassau">Nassau, The Bahamas</option>
         <option value="Bridgetown">Bridgetown, Barbados</option>
         <option value="Kingston">Kingston, Jamaica</option>

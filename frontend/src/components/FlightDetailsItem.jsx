@@ -1,6 +1,8 @@
 import { useState } from "react";
 import FlightDetailModal from "./FlightDetailModal";
 
+
+
 const FlightDetailsItem = (props) => {
 
   const { originAirport, departureTime, destinationAirport, arrivalTime, price, flightNumber, flights, onSelectFlight } = props;

@@ -1,4 +1,5 @@
 import FlightDetailsList from "../components/FlightDetailsList";
+import { Link } from "react-router-dom";
 
 const Departure = (props) => {
 
@@ -10,7 +11,9 @@ const Departure = (props) => {
     <>
     <h2>Departure Flights</h2>
     <FlightDetailsList flights={flights_to_destination} onSelectFlight ={onSelectFlight } />
+    <Link to="/return">
     <button>Next</button>
+    </Link>
     </>
   )
 }
