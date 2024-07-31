@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_07_25_173744) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_31_174053) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,12 +34,15 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_25_173744) do
     t.string "flight_number", null: false
     t.string "pilot_name"
     t.date "departure_date"
+    t.string "departure_terminal"
     t.time "departure_time"
     t.string "origin_airport"
     t.string "destination_airport"
     t.date "arrival_date"
+    t.string "arrival_terminal"
     t.time "arrival_time"
     t.integer "flight_duration"
+    t.decimal "flight_price", precision: 10, scale: 2, null: false
     t.boolean "wifi_available", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -52,7 +55,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_25_173744) do
     t.bigint "return_flight_id"
     t.bigint "seat_id", null: false
     t.bigint "checkout_id", null: false
-    t.decimal "price", precision: 10, scale: 2, null: false
+    t.decimal "order_price", precision: 10, scale: 2, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["checkout_id"], name: "index_orders_on_checkout_id"
