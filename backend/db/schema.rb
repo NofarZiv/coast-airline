@@ -76,7 +76,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_31_192643) do
 
   create_table "seats", force: :cascade do |t|
     t.bigint "aircraft_id", null: false
-    t.bigint "flight_id"
+    t.bigint "flight_id", null: true 
     t.string "seat_number", null: false
     t.boolean "available", default: true
     t.datetime "created_at", null: false

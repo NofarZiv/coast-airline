@@ -26,8 +26,8 @@ const Search = (props) => {
         <option value="Nassau">Nassau, The Bahamas</option>
         <option value="Bridgetown">Bridgetown, Barbados</option>
         <option value="Kingston">Kingston, Jamaica</option>
-        <option value="Santo-Domingo">Santo Domingo, Dominican Republic</option>
-        <option value="San-Juan">San Juan, Puerto Rico</option>
+        <option value="Santo Domingo">Santo Domingo, Dominican Republic</option>
+        <option value="San Juan">San Juan, Puerto Rico</option>
         <option value="Havana">Havana, Cuba</option>
         <option value="Oranjestad">Oranjestad, Aruba</option>
         <option value="Philipsburg">Philipsburg, Sint Maarten</option>
@@ -36,7 +36,7 @@ const Search = (props) => {
         <option value="Basseterre">Basseterre, Saint Kitts and Nevis</option>
         <option value="Roseau">Roseau, Dominica</option>
         <option value="Gustavia">Gustavia, Saint Barthélemy</option>
-        <option value="Road-Town">Road Town, British Virgin Islands</option>
+        <option value="Road Town">Road Town, British Virgin Islands</option>
       </select>
       <p>{errors.origin_airport?.message}</p>
 
@@ -48,8 +48,8 @@ const Search = (props) => {
         <option value="Nassau">Nassau, The Bahamas</option>
         <option value="Bridgetown">Bridgetown, Barbados</option>
         <option value="Kingston">Kingston, Jamaica</option>
-        <option value="Santo-Domingo">Santo Domingo, Dominican Republic</option>
-        <option value="San-Juan">San Juan, Puerto Rico</option>
+        <option value="Santo Domingo">Santo Domingo, Dominican Republic</option>
+        <option value="San Juan">San Juan, Puerto Rico</option>
         <option value="Havana">Havana, Cuba</option>
         <option value="Oranjestad">Oranjestad, Aruba</option>
         <option value="Philipsburg">Philipsburg, Sint Maarten</option>
@@ -58,7 +58,7 @@ const Search = (props) => {
         <option value="Basseterre">Basseterre, Saint Kitts and Nevis</option>
         <option value="Roseau">Roseau, Dominica</option>
         <option value="Gustavia">Gustavia, Saint Barthélemy</option>
-        <option value="Road-Town">Road Town, British Virgin Islands</option>
+        <option value="Road Town">Road Town, British Virgin Islands</option>
       </select>
       <p>{errors.destination_airport?.message}</p>
 

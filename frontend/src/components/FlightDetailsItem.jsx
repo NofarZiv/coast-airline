@@ -26,7 +26,7 @@ const FlightDetailsItem = (props) => {
       <div>{departureTime}</div>
       <span>{destinationAirport}</span>
       <div>{arrivalTime}</div>
-      <span>{price}</span>
+      <span>${price}</span>
       <button onClick={onClickFlight}>Details</button>
     </article>
     {isOpen && flightDetails && <FlightDetailModal flights={flightDetails} onClickFlight={onClickFlight} />}

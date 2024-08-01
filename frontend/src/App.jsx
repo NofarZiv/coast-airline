@@ -25,7 +25,7 @@ function App() {
 
   console.log(seatDeparture)
   console.log(seatReturn)
-
+  
   const navigate = useNavigate()
 
 

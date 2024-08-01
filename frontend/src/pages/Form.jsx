@@ -16,7 +16,7 @@ const Form = (props) => {
     console.log(data)
     email(data.email)
     try {
-    const res = await axios.post('/?', data)
+      await axios.post('/api/forms', data)
     } catch (error) {
       console.error('There was an error sending the data!', error);
     }
@@ -25,31 +25,34 @@ const Form = (props) => {
   
   const adultRender = [...Array(searchData.adult)].map((_, index) => (
     <Passenger 
-      key={`adult_${index}`} 
-      register={register} 
-      handleSubmit={handleSubmit} 
+      key={index}
+      index={index}
+      register={register}  
       errors={errors} 
       passengerType={`adult ${index + 1}`} 
+      type={"adults"}
     />
   ))
 
   const childRender = [...Array(searchData.child)].map((_, index) => (
     <Passenger 
-      key={`child_${index}`} 
+      key={index}
+      index={index}
       register={register} 
-      handleSubmit={handleSubmit} 
       errors={errors} 
       passengerType={`child ${index + 1}`} 
+      type={"children"}
     />
   ))
 
   const petRender = [...Array(searchData.pet)].map((_, index) => (
     <Pet 
-      key={`pet ${index}`} 
+      key={index}
+      index={index}
       register={register} 
-      handleSubmit={handleSubmit} 
       errors={errors} 
       passengerType={`pet ${index + 1}`}
+      type={"pets"}
     />
   ))
 
