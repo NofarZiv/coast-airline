@@ -1,6 +1,6 @@
 import { useState } from "react";
 import FlightDetailModal from "./FlightDetailModal";
-
+import { format, parseISO } from "date-fns";
 
 
 const FlightDetailsItem = (props) => {
@@ -19,13 +19,16 @@ const FlightDetailsItem = (props) => {
 
   const flightDetails = flights.find(flight => flight.flight_number === flightNumber);
 
+  const formattedDepartureTime = format(parseISO(departureTime), "HH:mm"); 
+  const formattedArrivalTime = format(parseISO(arrivalTime), "HH:mm");
+
   return(
     <>
     <article onClick={handleArticleClick}>
       <span>{originAirport}</span>
-      <div>{departureTime}</div>
+      <div>{formattedDepartureTime}</div>
       <span>{destinationAirport}</span>
-      <div>{arrivalTime}</div>
+      <div>{formattedArrivalTime}</div>
       <span>${price}</span>
       <button onClick={onClickFlight}>Details</button>
     </article>
