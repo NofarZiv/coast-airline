@@ -13,7 +13,8 @@ passengers = Passenger.create!([
     passport_number: 'A1234567',
     date_of_birth: '1980-01-15',
     email: 'john.doe@example.com',
-    phone_number: '555-1234'
+    phone_number: '555-1234',
+    gender: 'Male'
   },
   {
     first_name: 'Jane',
@@ -21,7 +22,8 @@ passengers = Passenger.create!([
     passport_number: 'B7654321',
     date_of_birth: '1992-05-30',
     email: 'jane.smith@example.com',
-    phone_number: '555-5678'
+    phone_number: '555-5678',
+    gender: 'Female'
   },
   {
     first_name: 'Alice',
@@ -29,7 +31,8 @@ passengers = Passenger.create!([
     passport_number: 'C9876543',
     date_of_birth: '1985-09-22',
     email: 'alice.johnson@example.com',
-    phone_number: '555-8765'
+    phone_number: '555-8765',
+    gender: 'Female'
   }
 ])
 
