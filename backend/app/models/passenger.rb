@@ -1,3 +1,3 @@
 class Passenger < ApplicationRecord
-  has_one :order
+  has_many :pets, dependent: :destroy
 end
