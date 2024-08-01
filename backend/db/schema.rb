@@ -42,7 +42,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_31_192643) do
     t.string "arrival_terminal"
     t.time "arrival_time"
     t.integer "flight_duration"
-    t.decimal "flight_price", precision: 10, scale: 2, null: false
+    t.float "flight_price", null: false
     t.boolean "wifi_available", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

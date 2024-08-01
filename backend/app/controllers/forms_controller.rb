@@ -41,6 +41,7 @@ class FormsController < ApplicationController
       {
         name: pet[:name],
         gender: pet[:gender]
+        species: pet[:species]
       }
     end
 
