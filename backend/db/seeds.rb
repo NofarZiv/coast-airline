@@ -1,9 +1,12 @@
 # db/seeds.rb
 
 # Clear existing data
+Order.delete_all
+Seat.delete_all
 Pet.delete_all
 Passenger.delete_all
 Flight.delete_all
+Aircraft.delete_all
 
 # Create sample passengers
 passengers = Passenger.create!([
@@ -70,9 +73,17 @@ Pet.create!([
   }
 ])
 
+# Create sample aircrafts
+aircrafts = Aircraft.create!([
+  { number_of_seats: 162, aircraft_number: 'AC1001' },
+  { number_of_seats: 162, aircraft_number: 'AC1002' },
+  { number_of_seats: 162, aircraft_number: 'AC1003' }
+])
+
 # Create sample departing flights
 departing_flights = [
   {
+    aircraft: aircrafts[0],
     flight_number: 'AC101',
     pilot_name: 'Captain John Doe',
     departure_date: '2024-08-16',
@@ -88,6 +99,7 @@ departing_flights = [
     wifi_available: true
   },
   {
+    aircraft: aircrafts[1],
     flight_number: 'AC102',
     pilot_name: 'Captain Jane Smith',
     departure_date: '2024-08-16',
@@ -103,6 +115,7 @@ departing_flights = [
     wifi_available: false
   },
   {
+    aircraft: aircrafts[2],
     flight_number: 'AC103',
     pilot_name: 'Captain Alice Johnson',
     departure_date: '2024-08-16',
@@ -122,6 +135,7 @@ departing_flights = [
 # Create sample return flights
 return_flights = [
   {
+    aircraft: aircrafts[0],
     flight_number: 'AC104',
     pilot_name: 'Captain John Doe',
     departure_date: '2024-08-17',
@@ -137,6 +151,7 @@ return_flights = [
     wifi_available: true
   },
   {
+    aircraft: aircrafts[1],
     flight_number: 'AC105',
     pilot_name: 'Captain Jane Smith',
     departure_date: '2024-08-17',
@@ -152,6 +167,7 @@ return_flights = [
     wifi_available: false
   },
   {
+    aircraft: aircrafts[2],
     flight_number: 'AC106',
     pilot_name: 'Captain Alice Johnson',
     departure_date: '2024-08-17',
@@ -169,4 +185,64 @@ return_flights = [
 ]
 
 # Insert flights into database
-Flight.create!(departing_flights + return_flights)
+flights = Flight.create!(departing_flights + return_flights)
+
+# Method to generate seat numbers based on the specified layout
+def generate_seat_numbers
+  seat_numbers = []
+  (1..27).each do |row|
+    ('A'..'F').each do |letter|
+      seat_numbers << "#{row}#{letter}"
+    end
+  end
+  seat_numbers
+end
+
+# Create sample seats for each aircraft
+seats = []
+aircrafts.each do |aircraft|
+  generate_seat_numbers.each do |seat_number|
+    seats << { aircraft: aircraft, seat_number: seat_number, available: true }
+  end
+end
+seats = Seat.create!(seats)
+
+# Create sample orders
+Order.create!([
+  {
+    seat: seats[0],
+    flight: flights[0],
+    passenger: passengers[0],
+    flight_type: 'one-way'
+  },
+  {
+    seat: seats[1],
+    flight: flights[1],
+    passenger: passengers[1],
+    flight_type: 'one-way'
+  },
+  {
+    seat: seats[2],
+    flight: flights[2],
+    passenger: passengers[2],
+    flight_type: 'one-way'
+  },
+  {
+    seat: seats[3],
+    flight: flights[3],
+    passenger: passengers[0],
+    flight_type: 'return'
+  },
+  {
+    seat: seats[4],
+    flight: flights[4],
+    passenger: passengers[1],
+    flight_type: 'return'
+  },
+  {
+    seat: seats[5],
+    flight: flights[5],
+    passenger: passengers[2],
+    flight_type: 'return'
+  }
+])

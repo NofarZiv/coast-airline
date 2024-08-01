@@ -1,4 +1,4 @@
-class CreatePassengersTable < ActiveRecord::Migration[7.0]
+class CreatePassengers < ActiveRecord::Migration[7.0]
   def change
     create_table :passengers do |t|
       t.string :first_name
@@ -7,6 +7,7 @@ class CreatePassengersTable < ActiveRecord::Migration[7.0]
       t.date :date_of_birth
       t.string :email
       t.string :phone_number
+      t.string :gender
 
       t.timestamps
     end

@@ -10,27 +10,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_08_01_192116) do
+ActiveRecord::Schema[7.0].define(version: 2024_08_01_193917) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "flights", force: :cascade do |t|
-    t.string "flight_number", null: false
-    t.string "pilot_name", null: false
-    t.date "departure_date", null: false
-    t.string "departure_terminal", null: false
-    t.time "departure_time", null: false
-    t.string "origin_airport", null: false
-    t.string "destination_airport", null: false
-    t.date "arrival_date", null: false
-    t.string "arrival_terminal", null: false
-    t.time "arrival_time", null: false
-    t.integer "flight_duration", null: false
-    t.float "flight_price", null: false
-    t.boolean "wifi_available", default: false, null: false
+  create_table "aircrafts", force: :cascade do |t|
+    t.integer "number_of_seats"
+    t.string "aircraft_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["flight_number"], name: "index_flights_on_flight_number", unique: true
+  end
+
+  create_table "flights", force: :cascade do |t|
+    t.bigint "aircraft_id", null: false
+    t.string "flight_number"
+    t.string "pilot_name"
+    t.date "departure_date"
+    t.string "departure_terminal"
+    t.time "departure_time"
+    t.string "origin_airport"
+    t.string "destination_airport"
+    t.date "arrival_date"
+    t.string "arrival_terminal"
+    t.time "arrival_time"
+    t.integer "flight_duration"
+    t.float "flight_price"
+    t.boolean "wifi_available"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["aircraft_id"], name: "index_flights_on_aircraft_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.bigint "seat_id", null: false
+    t.bigint "flight_id", null: false
+    t.bigint "passenger_id", null: false
+    t.string "flight_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["flight_id"], name: "index_orders_on_flight_id"
+    t.index ["passenger_id"], name: "index_orders_on_passenger_id"
+    t.index ["seat_id"], name: "index_orders_on_seat_id"
   end
 
   create_table "passengers", force: :cascade do |t|
@@ -40,9 +60,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_01_192116) do
     t.date "date_of_birth"
     t.string "email"
     t.string "phone_number"
+    t.string "gender"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "gender"
   end
 
   create_table "pets", force: :cascade do |t|
@@ -55,5 +75,19 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_01_192116) do
     t.index ["passenger_id"], name: "index_pets_on_passenger_id"
   end
 
+  create_table "seats", force: :cascade do |t|
+    t.bigint "aircraft_id", null: false
+    t.string "seat_number"
+    t.boolean "available", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["aircraft_id"], name: "index_seats_on_aircraft_id"
+  end
+
+  add_foreign_key "flights", "aircrafts"
+  add_foreign_key "orders", "flights"
+  add_foreign_key "orders", "passengers"
+  add_foreign_key "orders", "seats"
   add_foreign_key "pets", "passengers"
+  add_foreign_key "seats", "aircrafts"
 end
