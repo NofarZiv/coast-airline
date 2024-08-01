@@ -42,6 +42,16 @@ function App() {
     }
   }
 
+  const onSubmitForm = async (data) => {
+    console.log(data)
+    setEmail(data.email)
+    try {
+      await axios.post('/api/forms', data)
+    } catch (error) {
+      console.error('There was an error sending the data!', error);
+    }
+  }
+
   const handleConfirmBooking  = async () => {
     try {
       await axios.post('/api/bookings', {
@@ -73,7 +83,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route exact path="/" element={<Home onSubmitSearch={onSubmitSearch}/>} />
-        <Route path="/form" element={<Form searchData={searchData} email={setEmail} />} />
+        <Route path="/form" element={<Form searchData={searchData} onSubmitForm={onSubmitForm} />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/departure" element={<Departure searchResult={searchResult} onSelectFlight={setSelectedDepartureFlight} />} />
         <Route path="/return" element={<Return searchResult={searchResult} onSelectFlight={setSelectedReturnFlight} />} />

@@ -7,20 +7,10 @@ import '../styles/Form.css';
 
 const Form = (props) => {
 
-  const { searchData, email } = props;
+  const { searchData, onSubmitForm } = props;
 
   const { register, handleSubmit, formState: { errors } } = useForm();
 
-
-  const onSubmitForm = async (data) => {
-    console.log(data)
-    email(data.email)
-    try {
-      await axios.post('/api/forms', data)
-    } catch (error) {
-      console.error('There was an error sending the data!', error);
-    }
-  }
 
   
   const adultRender = [...Array(searchData.adult)].map((_, index) => (

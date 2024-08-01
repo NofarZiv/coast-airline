@@ -40,7 +40,7 @@ class FormsController < ApplicationController
     def pet_params(pet)
       {
         name: pet[:name],
-        gender: pet[:gender]
+        gender: pet[:gender],
       }
     end
 
