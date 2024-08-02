@@ -6,7 +6,6 @@ const Seats = (props) => {
   const { setSeatDeparture, setSeatReturn, handleSeatsSelection } = props;
 
   const [isDeparture, setIsDeparture] = useState(true);
-  const [initialSwitch, setInitialSwitch] = useState(false);
 
   
   const onSelectedSeat = (seat) => {
@@ -32,9 +31,8 @@ const Seats = (props) => {
   
   const handleToggle = () => {
     setIsDeparture(!isDeparture);
-  };
-
-  
+  }
+    
 
   return(
     <div>
