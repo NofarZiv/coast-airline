@@ -77,6 +77,10 @@ function App() {
     }
   };
 
+  const totalPassengers = searchData ? (searchData.adult + searchData.child + searchData.pet) : 0;
+  const total = searchData && selectedDepartureFlight && selectedReturnFlight ? 
+    totalPassengers * (selectedDepartureFlight.flight_price + selectedReturnFlight.flight_price) : 0;
+
 
   return (
     <>
@@ -84,10 +88,10 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home onSubmitSearch={onSubmitSearch}/>} />
         <Route path="/form" element={<Form searchData={searchData} onSubmitForm={onSubmitForm} />} />
-        <Route path="/payment" element={<Payment />} />
+        <Route path="/payment" element={<Payment total={total} />} />
         <Route path="/departure" element={<Departure searchResult={searchResult} onSelectFlight={setSelectedDepartureFlight} />} />
         <Route path="/return" element={<Return searchResult={searchResult} onSelectFlight={setSelectedReturnFlight} />} />
-        <Route path="/summary" element={<Summary departureFlight={selectedDepartureFlight} returnFlight={selectedReturnFlight} handleConfirmBooking={handleConfirmBooking } searchData={searchData}/>} />
+        <Route path="/summary" element={<Summary departureFlight={selectedDepartureFlight} returnFlight={selectedReturnFlight} handleConfirmBooking={handleConfirmBooking } searchData={searchData} totalPassengers={totalPassengers} total={total} />} />
         <Route path="/order-confirmation" element={<OrderConfirmation email={email} />} />
         <Route path="/seats" element={<Seats setSeatDeparture={setSeatDeparture} setSeatReturn={setSeatReturn} handleSeatsSelection={handleSeatsSelection} />} />
       </Routes>

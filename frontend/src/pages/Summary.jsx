@@ -3,7 +3,7 @@ import PaymentSum from "../components/PaymentSum";
 
 const Summary = (props) => {
 
-  const { departureFlight, returnFlight, handleConfirmBooking, searchData  } = props;
+  const { departureFlight, returnFlight, handleConfirmBooking, searchData, totalPassengers, total  } = props;
 
 
   return(
@@ -11,7 +11,9 @@ const Summary = (props) => {
       <h2>Trip Summary</h2>
       <TripSum flight={departureFlight} isDeparture={true}/>
       <TripSum flight={returnFlight} isDeparture={false}/>
-      <PaymentSum searchData={searchData} departureFlightPrice={departureFlight.price} returnFlightPrice={returnFlight.price} />
+      {searchData && (
+      <PaymentSum searchData={searchData} departureFlightPrice={departureFlight.flight_price} returnFlightPrice={returnFlight.flight_price} totalPassengers={totalPassengers} total={total} />
+      )}
       <button onClick={handleConfirmBooking }>Next</button>
     </div>
   )

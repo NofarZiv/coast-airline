@@ -2,10 +2,8 @@
 
 const PaymentSum = (props) => {
 
-  const { searchData, departureFlightPrice, returnFlightPrice } = props;
+  const { searchData, departureFlightPrice, returnFlightPrice, totalPassengers, total } = props;
 
-  const totalPassengers = searchData.adult + searchData.child + searchData.pet;
-  const total = totalPassengers * (departureFlightPrice + returnFlightPrice);
 
   
   return(

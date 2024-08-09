@@ -2,12 +2,8 @@ Rails.application.routes.draw do
   get 'flights', to: 'flights#index'
 
   post 'forms', to: 'forms#create'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
-  
-  # resources :flights
+  post 'checkoutsessions', to: 'stripe#create'
 
 
 end
