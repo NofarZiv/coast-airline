@@ -1,6 +1,7 @@
 import Seat from "../components/Seat";
 import { useState, useEffect } from "react";
 
+
 const Seats = (props) => {
 
   const { setSeatDeparture, setSeatReturn, handleSeatsSelection } = props;
