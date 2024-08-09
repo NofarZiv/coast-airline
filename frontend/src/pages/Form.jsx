@@ -5,6 +5,7 @@ import Contact from "../components/Contact";
 import '../styles/Form.css';
 
 
+
 const Form = (props) => {
 
   const { searchData, onSubmitForm } = props;

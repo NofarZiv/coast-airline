@@ -22,6 +22,7 @@ function App() {
   const [seatDeparture, setSeatDeparture] = useState([]);
   const [seatReturn, setSeatReturn] = useState([]);
   const [email, setEmail] = useState();
+  const [formData, setFormData] = useState()
 
   console.log(seatDeparture)
   console.log(seatReturn)
@@ -30,7 +31,6 @@ function App() {
 
 
   const onSubmitSearch = async (data) => {
-    console.log(data)
     setSearchData(data)
     try {
     const res = await axios.get('/api/flights', { params: data })
@@ -43,10 +43,11 @@ function App() {
   }
 
   const onSubmitForm = async (data) => {
-    console.log(data)
-    setEmail(data.email)
+    setFormData(data)
+    setEmail(data.email_address)
     try {
       await axios.post('/api/forms', data)
+      navigate('/seats')
     } catch (error) {
       console.error('There was an error sending the data!', error);
     }
@@ -65,15 +66,20 @@ function App() {
   }
 
   const handleSeatsSelection = async () => {
+    console.log(formData)
     try {
-      await axios.post('/api/seat-selection', {
+      await axios.post('/api/seats', {
         seatDeparture,
-        seatReturn
+        seatReturn,
+        passenger: formData,
+        departure_flight_id: selectedDepartureFlight.id,
+        return_flight_id: selectedReturnFlight.id,
+        departure_aircrart_id: selectedDepartureFlight.aircraft_id,
+        return_aircraft_id: selectedReturnFlight.aircraft_id
       });
-      
+      navigate('/summary')
     } catch (error) {
       console.error('Error submitting seat selection:', error);
-      
     }
   };
 
