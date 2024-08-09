@@ -1,6 +1,7 @@
 import { loadStripe } from '@stripe/stripe-js';
 import { useCallback } from 'react';
 import { EmbeddedCheckout, EmbeddedCheckoutProvider } from '@stripe/react-stripe-js';
+import { Link } from 'react-router-dom';
 
 const Payment = (props) => {
   const { total } = props;
@@ -26,6 +27,9 @@ const Payment = (props) => {
       <EmbeddedCheckoutProvider stripe={stripePromise} options={options}>
         <EmbeddedCheckout />
       </EmbeddedCheckoutProvider>
+      <Link to="/order-confirmation">
+      <button>Next</button>
+      </Link>
     </div>
   );
 };

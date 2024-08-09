@@ -1,5 +1,6 @@
 import TripSum from "../components/TripSum";
-import PaymentSum from "../components/PaymentSum"; 
+import PaymentSum from "../components/PaymentSum";
+import { Link } from "react-router-dom";
 
 const Summary = (props) => {
 
@@ -14,7 +15,9 @@ const Summary = (props) => {
       {searchData && (
       <PaymentSum searchData={searchData} departureFlightPrice={departureFlight.flight_price} returnFlightPrice={returnFlight.flight_price} totalPassengers={totalPassengers} total={total} />
       )}
+      <Link to="/payment">
       <button onClick={handleConfirmBooking }>Next</button>
+      </Link>
     </div>
   )
 }
