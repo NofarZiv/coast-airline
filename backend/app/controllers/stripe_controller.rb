@@ -7,7 +7,7 @@ def create
 
   total_in_cents = (params[:total].to_f * 100).to_i
 
-Stripe.api_key=''
+Stripe.api_key='sk_test_51PYXLtRoF1R8UIs1KwyBCgtpXlPwqXyLbs6RBMHg2ApFiILbgt8qjVZqMhaI2KEj4N1PvJQWSXYWB0r0CvDQbybU00bMpPy6OJ'
 
   session=Stripe::Checkout::Session.create( { line_items: [{
     price_data: {
