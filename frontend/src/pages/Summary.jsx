@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Summary = (props) => {
 
-  const { departureFlight, returnFlight, handleConfirmBooking, searchData, totalPassengers, total  } = props;
+  const { departureFlight, returnFlight, handleConfirmBooking, searchData, totalPassengers, total, sendEmail  } = props;
 
 
   return(
@@ -16,7 +16,7 @@ const Summary = (props) => {
       <PaymentSum searchData={searchData} departureFlightPrice={departureFlight.flight_price} returnFlightPrice={returnFlight.flight_price} totalPassengers={totalPassengers} total={total} />
       )}
       <Link to="/payment">
-      <button onClick={handleConfirmBooking }>Next</button>
+      <button onClick={ sendEmail }>Next</button>
       </Link>
     </div>
   )

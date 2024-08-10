@@ -24,12 +24,19 @@ Stripe.api_key='sk_test_51PYXLtRoF1R8UIs1KwyBCgtpXlPwqXyLbs6RBMHg2ApFiILbgt8qjVZ
 
   mode: 'payment',
   # These placeholder URLs will be replaced in a following step.
-  return_url: 'http://localhost:5173/', 
+  return_url: 'http://localhost:5173/order-confirmation', 
 })
 
 puts session
 
-  render json: { id:session.client_secret } 
+# @return=Order.last
+# @departure=Order.find(@return.id-1)
+
+# @total=params[:total]
+
+# OrderMailer.order_confirmation(@return, @departure, @total).deliver_now
+
+render json: { id:session.client_secret } 
 
 end
 

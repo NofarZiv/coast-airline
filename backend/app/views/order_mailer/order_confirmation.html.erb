@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        color: #333;
+        line-height: 1.6;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 600px;
+        margin: 20px auto;
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1, h2 {
+        color: #00466a;
+      }
+      p {
+        margin: 10px 0;
+      }
+      .section-title {
+        border-bottom: 2px solid #00466a;
+        padding-bottom: 5px;
+        margin-bottom: 15px;
+        font-size: 18px;
+      }
+      .passenger-info, .flight-info {
+        margin-bottom: 20px;
+      }
+      .passenger-info div, .flight-info div {
+        margin-bottom: 10px;
+      }
+      .passenger-info strong, .flight-info strong {
+        display: inline-block;
+        width: 150px;
+        color: #333;
+      }
+      .footer {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 12px;
+        color: #777;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Order Confirmation</h1>
+      <p>Thank you for your order.</p>
+      <p>Order details:</p>
+
+      <div class="section-title">Passengers</div>
+      <div class="passenger-info">
+        <% @passenger_info[:adults].each do |passenger| %>
+          <div><strong>Name:</strong> <%= passenger[:first_name] %> <%= passenger[:last_name] %></div>
+          <div><strong>Gender:</strong> <%= passenger[:gender].capitalize %></div>
+          <div><strong>Date of Birth:</strong> <%= passenger[:DD] %>-<%= passenger[:MM] %>-<%= passenger[:YYYY] %></div>
+          <div><strong>Passport Number:</strong> <%= passenger[:passport] %></div>
+          <br>
+        <% end %>
+      </div>
+
+      <div class="section-title">Flight Information</div>
+      <div class="flight-info">
+        <div><strong>Departure Flight Number:</strong> <%= @selectedDepartureFlight[:flight_number] %></div>
+        <div><strong>Departure Date:</strong> <%= @selectedDepartureFlight[:departure_date] %></div>
+        <div><strong>Departure Time:</strong> <%= Time.parse(@selectedDepartureFlight[:departure_time]).strftime('%H:%M') %></div>
+        <div><strong>Origin Airport:</strong> <%= @selectedDepartureFlight[:origin_airport] %></div>
+        <div><strong>Destination Airport:</strong> <%= @selectedDepartureFlight[:destination_airport] %></div>
+        <div><strong>Arrival Date:</strong> <%= @selectedDepartureFlight[:arrival_date] %></div>
+        <div><strong>Arrival Time:</strong> <%= Time.parse(@selectedDepartureFlight[:arrival_time]).strftime('%H:%M') %></div>
+        <br>
+        <div><strong>Return Flight Number:</strong> <%= @selectedReturnFlight[:flight_number] %></div>
+        <div><strong>Return Date:</strong> <%= @selectedReturnFlight[:departure_date] %></div>
+        <div><strong>Return Time:</strong> <%= Time.parse(@selectedReturnFlight[:departure_time]).strftime('%H:%M') %></div>
+        <div><strong>Origin Airport:</strong> <%= @selectedReturnFlight[:origin_airport] %></div>
+        <div><strong>Destination Airport:</strong> <%= @selectedReturnFlight[:destination_airport] %></div>
+        <div><strong>Arrival Date:</strong> <%= @selectedReturnFlight[:arrival_date] %></div>
+        <div><strong>Arrival Time:</strong> <%= Time.parse(@selectedReturnFlight[:arrival_time]).strftime('%H:%M') %></div>
+      </div>
+
+      <div class="footer">
+        &copy; 2024 Coast Air. All rights reserved.
+      </div>
+    </div>
+  </body>
+</html>

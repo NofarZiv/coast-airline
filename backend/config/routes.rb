@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get 'flights', to: 'flights#index'
 
   post 'forms', to: 'forms#create'
@@ -8,5 +9,8 @@ Rails.application.routes.draw do
 
   post 'checkoutsessions', to: 'stripe#create'
 
+  post 'bookings', to: 'orders#booking'
+
+  post 'send_email', to: 'email#delivery'
 
 end

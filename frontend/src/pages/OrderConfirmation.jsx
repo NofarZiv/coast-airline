@@ -1,7 +1,17 @@
 import { Link } from "react-router-dom"; 
-
+import { useEffect } from "react";
+import axios from "axios";
 
 const OrderConfirmation = (props) => {
+
+const {sendEmail} = props
+
+useEffect(() => {
+
+  sendEmail()
+
+}, [])
+
 
   const { email } = props;
 

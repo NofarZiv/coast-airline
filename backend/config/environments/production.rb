@@ -64,9 +64,20 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  # Ignore bad email addresses and do not raise email delivery errors.
-  # Set this to true and configure the email server for immediate delivery to raise delivery errors.
-  # config.action_mailer.raise_delivery_errors = false
+  # Raise errors if the mailer can't send.
+  config.action_mailer.raise_delivery_errors = true
+
+  # Configure Action Mailer to use SendGrid SMTP
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    user_name: 'apikey', # This is the string literal 'apikey', not your SendGrid username
+    password: ENV['SENDGRID_API_KEY'], # Your SendGrid API key
+    domain: 'info@trevor-sullivan.com', # Replace with your domain
+    address: 'smtp.sendgrid.net',
+    port: 587,
+    authentication: :plain,
+    enable_starttls_auto: true
+  }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
@@ -78,10 +89,6 @@ Rails.application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  # Use a different logger for distributed setups.
-  # require "syslog/logger"
-  # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new "app-name")
-
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
@@ -90,4 +97,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Set the default URL options for Action Mailer in production
+  config.action_mailer.default_url_options = { host: 'www.yourdomain.com', protocol: 'https' }
 end
+

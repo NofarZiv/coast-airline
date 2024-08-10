@@ -87,6 +87,10 @@ GEM
     debug (1.9.2)
       irb (~> 1.10)
       reline (>= 0.3.8)
+    dotenv (3.1.2)
+    dotenv-rails (3.1.2)
+      dotenv (= 3.1.2)
+      railties (>= 6.1)
     erubi (1.13.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
@@ -177,11 +181,14 @@ GEM
       io-console (~> 0.5)
     rexml (3.3.1)
       strscan
+    ruby_http_client (3.5.5)
     rubyzip (2.3.2)
     selenium-webdriver (4.10.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sendgrid-ruby (6.7.0)
+      ruby_http_client (~> 3.4)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -223,6 +230,7 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  dotenv-rails
   importmap-rails
   jbuilder
   pg
@@ -230,6 +238,7 @@ DEPENDENCIES
   rack-cors
   rails (~> 7.0.8, >= 7.0.8.4)
   selenium-webdriver
+  sendgrid-ruby
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails

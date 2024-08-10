@@ -27,9 +27,9 @@ const Payment = (props) => {
       <EmbeddedCheckoutProvider stripe={stripePromise} options={options}>
         <EmbeddedCheckout />
       </EmbeddedCheckoutProvider>
-      <Link to="/order-confirmation">
+      {/* <Link to="/order-confirmation">
       <button>Next</button>
-      </Link>
+      </Link> */}
     </div>
   );
 };

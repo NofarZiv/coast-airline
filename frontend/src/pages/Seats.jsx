@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 const Seats = (props) => {
 
-  const { setSeatDeparture, setSeatReturn, handleSeatsSelection } = props;
+  const { setSeatDeparture, setSeatReturn, handleSeatsSelection, seatDeparture, seatReturn } = props;
 
   const [isDeparture, setIsDeparture] = useState(true);
 
@@ -41,7 +41,7 @@ const Seats = (props) => {
       <button onClick={handleToggle} disabled={!isDeparture}>Return</button>
       <Seat
         key={isDeparture ? 'departure' : 'return'}
-        onSelectedSeat={onSelectedSeat}
+        onSelectedSeat={onSelectedSeat} selectedSeat={isDeparture ? seatDeparture : seatReturn}
       />
       <button onClick={handleSeatsSelection}>Next</button>
     </div>

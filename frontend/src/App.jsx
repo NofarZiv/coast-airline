@@ -56,8 +56,8 @@ function App() {
   const handleConfirmBooking  = async () => {
     try {
       await axios.post('/api/bookings', {
-        departureFlightNumber: selectedDepartureFlight.flight_number,
-        returnFlightNumber: selectedReturnFlight.flight_number
+        departureFlightNumber: selectedDepartureFlight.id,
+        returnFlightNumber: selectedReturnFlight.id
       });
       alert('Booking confirmed!');
     } catch (error) {
@@ -87,6 +87,12 @@ function App() {
   const total = searchData && selectedDepartureFlight && selectedReturnFlight ? 
     totalPassengers * (selectedDepartureFlight.flight_price + selectedReturnFlight.flight_price) : 0;
 
+   const sendEmail = async () => {
+    console.log(formData)
+      await axios.post("/api/send_email", {formData, selectedDepartureFlight, selectedReturnFlight} )
+    
+    }
+
 
   return (
     <>
@@ -97,9 +103,9 @@ function App() {
         <Route path="/payment" element={<Payment total={total} />} />
         <Route path="/departure" element={<Departure searchResult={searchResult} onSelectFlight={setSelectedDepartureFlight} />} />
         <Route path="/return" element={<Return searchResult={searchResult} onSelectFlight={setSelectedReturnFlight} />} />
-        <Route path="/summary" element={<Summary departureFlight={selectedDepartureFlight} returnFlight={selectedReturnFlight} handleConfirmBooking={handleConfirmBooking } searchData={searchData} totalPassengers={totalPassengers} total={total} />} />
-        <Route path="/order-confirmation" element={<OrderConfirmation email={email} />} />
-        <Route path="/seats" element={<Seats setSeatDeparture={setSeatDeparture} setSeatReturn={setSeatReturn} handleSeatsSelection={handleSeatsSelection} />} />
+        <Route path="/summary" element={<Summary departureFlight={selectedDepartureFlight} returnFlight={selectedReturnFlight} handleConfirmBooking={handleConfirmBooking } searchData={searchData} totalPassengers={totalPassengers} total={total} sendEmail={sendEmail} />} />
+        <Route path="/order-confirmation" element={<OrderConfirmation email={email} sendEmail={sendEmail} />} />
+        <Route path="/seats" element={<Seats setSeatDeparture={setSeatDeparture} setSeatReturn={setSeatReturn} handleSeatsSelection={handleSeatsSelection} seatDeparture={seatDeparture} seatReturn={seatReturn} />} />
       </Routes>
     </>
   )
