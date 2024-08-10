@@ -68,7 +68,9 @@ function App() {
 
   const handleSeatsSelection = async () => {
     console.log(formData)
+    let updatedFormData = { ...formData };
 
+    if (formData.pets && formData.pets.length > 0) {
     const updatedPets = formData.pets.map((pet, index) => {
     const associatedPassenger = formData.adults[index % formData.adults.length]; 
     return {
@@ -77,10 +79,11 @@ function App() {
     };
   });
 
-  const updatedFormData = {
+   updatedFormData = {
     ...formData,
     pets: updatedPets,
   };
+}
 
     try {
       await axios.post('/api/seats', {
