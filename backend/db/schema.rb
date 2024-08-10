@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_08_01_193917) do
+ActiveRecord::Schema[7.0].define(version: 2024_08_09_142540) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,8 +48,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_01_193917) do
     t.string "flight_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "pet_id"
     t.index ["flight_id"], name: "index_orders_on_flight_id"
     t.index ["passenger_id"], name: "index_orders_on_passenger_id"
+    t.index ["pet_id"], name: "index_orders_on_pet_id"
     t.index ["seat_id"], name: "index_orders_on_seat_id"
   end
 
@@ -87,6 +89,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_01_193917) do
   add_foreign_key "flights", "aircrafts"
   add_foreign_key "orders", "flights"
   add_foreign_key "orders", "passengers"
+  add_foreign_key "orders", "pets"
   add_foreign_key "orders", "seats"
   add_foreign_key "pets", "passengers"
   add_foreign_key "seats", "aircrafts"

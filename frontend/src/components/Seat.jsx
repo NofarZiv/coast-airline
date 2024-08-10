@@ -2,9 +2,8 @@ import '../styles/Seat.css';
 
 const Seat = (props) => {
 
-  const { onSelectedSeat  } = props;
+  const { onSelectedSeat } = props;
 
-  
 
   return(
     <div className="plane">

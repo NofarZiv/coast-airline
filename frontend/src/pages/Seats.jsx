@@ -1,5 +1,5 @@
 import Seat from "../components/Seat";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 
 const Seats = (props) => {
@@ -8,8 +8,10 @@ const Seats = (props) => {
 
   const [isDeparture, setIsDeparture] = useState(true);
 
+ 
   
   const onSelectedSeat = (seat) => {
+
     if (isDeparture) {
       setSeatDeparture((prevSeats) => {
         if (prevSeats.includes(seat)) {
@@ -33,7 +35,7 @@ const Seats = (props) => {
   const handleToggle = () => {
     setIsDeparture(!isDeparture);
   }
-    
+  
 
   return(
     <div>

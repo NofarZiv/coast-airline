@@ -1,7 +1,7 @@
 class Order < ApplicationRecord
-  belongs_to :seat
+  belongs_to :passenger, optional: true
   belongs_to :flight
-  belongs_to :passenger
+  belongs_to :seat
+  belongs_to :pet, optional: true  # This line remains the same
 
-  validates :flight_type, presence: true
 end
