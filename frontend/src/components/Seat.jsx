@@ -4,7 +4,6 @@ const Seat = (props) => {
 
   const { onSelectedSeat, selectedSeat } = props;
 
-  
 
   return(
     <div className="plane">

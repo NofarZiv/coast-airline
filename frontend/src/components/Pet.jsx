@@ -14,7 +14,7 @@ const Pet = (props) => {
         <option value="female">Female</option>
         <option value="male">Male</option>
       </select>
-      <select placeholder="species" {...register(`${type}[${index}].specias`, { required: "Please provide pet species" })}>
+      <select placeholder="species" {...register(`${type}[${index}].species`, { required: "Please provide pet species" })}>
         <option value="species">Species</option>
         <option value="dog">Dog</option>
         <option value="cat">Cat</option>

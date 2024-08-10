@@ -26,6 +26,7 @@ function App() {
 
   console.log(seatDeparture)
   console.log(seatReturn)
+  console.log(formData)
   
   const navigate = useNavigate()
 
@@ -67,11 +68,25 @@ function App() {
 
   const handleSeatsSelection = async () => {
     console.log(formData)
+
+    const updatedPets = formData.pets.map((pet, index) => {
+    const associatedPassenger = formData.adults[index % formData.adults.length]; 
+    return {
+      ...pet,
+      passenger_passport_number: associatedPassenger.passport, 
+    };
+  });
+
+  const updatedFormData = {
+    ...formData,
+    pets: updatedPets,
+  };
+
     try {
       await axios.post('/api/seats', {
         seatDeparture,
         seatReturn,
-        passenger: formData,
+        passenger: updatedFormData,
         departure_flight_id: selectedDepartureFlight.id,
         return_flight_id: selectedReturnFlight.id,
         departure_aircrart_id: selectedDepartureFlight.aircraft_id,
