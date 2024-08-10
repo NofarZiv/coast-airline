@@ -52,8 +52,7 @@
   <body>
     <div class="container">
       <h1>Order Confirmation</h1>
-      <p>Thank you for your order.</p>
-      <p>Order details:</p>
+      <p>Thank you for your order. Below are your flight details and other useful information for your trip.</p>
 
       <div class="section-title">Passengers</div>
       <div class="passenger-info">
@@ -85,9 +84,36 @@
         <div><strong>Arrival Time:</strong> <%= Time.parse(@selectedReturnFlight[:arrival_time]).strftime('%H:%M') %></div>
       </div>
 
+      <div class="section-title">Price Summary</div>
+      <div class="flight-info">
+        <% per_passenger_cost = @total.to_f / @passenger_info[:adults].size %>
+        <% @passenger_info[:adults].each do |passenger| %>
+          <p><strong><%= passenger[:first_name] %> <%= passenger[:last_name] %>:</strong> $<%= sprintf('%.2f', per_passenger_cost) %></p>
+        <% end %>
+        <p><strong>Total:</strong> $<%= sprintf('%.2f', @total) %></p>
+      </div>
+
+      <div class="section-title">Important Information</div>
+      <div class="flight-info">
+        <p><strong>Check-in and Boarding:</strong> Please ensure you arrive at the airport at least 3 hours before your international flight and 2 hours before your domestic flight. Check-in and baggage drop-off close 45 minutes before departure for domestic flights and 60 minutes before departure for international flights.</p>
+        
+        <p><strong>Baggage Allowance:</strong> Each passenger is allowed one carry-on item and one personal item. The maximum weight for checked baggage is 23 kg (50 lb) per bag, with a maximum of two checked bags allowed. Additional fees may apply for extra baggage.</p>
+
+        <p><strong>In-Flight Services:</strong> All flights include complimentary non-alcoholic beverages. Meals and snacks are available for purchase on board. Wi-Fi is available on select flights.</p>
+      </div>
+
+      <div class="section-title">Travel Reminders</div>
+      <div class="flight-info">
+        <p>Ensure you have all required travel documents, including your passport and visa (if applicable). Review the entry requirements for your destination, including COVID-19 testing and quarantine regulations, before traveling.</p>
+
+        <p>Please remember to bring this confirmation email with you to the airport, either printed or on your mobile device, as it serves as your official itinerary and receipt.</p>
+      </div>
+
       <div class="footer">
         &copy; 2024 Coast Air. All rights reserved.
       </div>
     </div>
   </body>
 </html>
+
+

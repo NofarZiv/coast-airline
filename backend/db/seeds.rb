@@ -36,6 +36,15 @@ passengers = Passenger.create!([
     email: 'alice.johnson@example.com',
     phone_number: '555-8765',
     gender: 'Female'
+  },
+  {
+    first_name: 'Extra',
+    last_name: 'Passenger',
+    passport_number: 'D1234567',
+    date_of_birth: '1975-07-07',
+    email: 'extra.passenger@example.com',
+    phone_number: '555-0000',
+    gender: 'Male'
   }
 ])
 
@@ -207,8 +216,29 @@ aircrafts.each do |aircraft|
 end
 seats = Seat.create!(seats)
 
-# Create sample orders
+# Find the aircraft for the specified flights
+ac101_flight = Flight.find_by(flight_number: 'AC101')
+ac104_flight = Flight.find_by(flight_number: 'AC104')
+
+# Mark specific seats as unavailable by finding the corresponding seat in the aircraft
+Seat.find_by(aircraft: ac101_flight.aircraft, seat_number: '1A').update!(available: false)
+Seat.find_by(aircraft: ac104_flight.aircraft, seat_number: '1F').update!(available: false)
+
+# Create orders to represent the taken seats
 Order.create!([
+  {
+    seat: Seat.find_by(aircraft: aircrafts[0], seat_number: '1A'),
+    flight: flights[0], # AC101
+    passenger: passengers[3], # Extra Passenger
+    flight_type: 'one-way'
+  },
+  {
+    seat: Seat.find_by(aircraft: aircrafts[0], seat_number: '1F'),
+    flight: flights[3], # AC104
+    passenger: passengers[3], # Extra Passenger
+    flight_type: 'return'
+  },
+  # Add other sample orders for the remaining flights and passengers
   {
     seat: seats[0],
     flight: flights[0],
