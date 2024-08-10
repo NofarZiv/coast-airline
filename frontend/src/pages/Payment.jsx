@@ -20,7 +20,7 @@ const Payment = (props) => {
   }, [total]);
 
   const options = { fetchClientSecret };
-  const stripePromise = loadStripe('pk_test_51PYXLtRoF1R8UIs1w2HY2yM5CYbgTe8dvVqcv43Hs5Aq7p26vmop9GpItWsknvXci5f7ZfREn2GFbDeyOtMpSnDl00oEtrRjG1');
+  const stripePromise = loadStripe('');
 
   return (
     <div>
