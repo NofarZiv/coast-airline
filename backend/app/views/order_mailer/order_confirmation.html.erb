@@ -30,13 +30,13 @@
         margin-bottom: 15px;
         font-size: 18px;
       }
-      .passenger-info, .flight-info {
+      .passenger-info, .flight-info, .seat-info, .pet-info {
         margin-bottom: 20px;
       }
-      .passenger-info div, .flight-info div {
+      .passenger-info div, .flight-info div, .seat-info div, .pet-info div {
         margin-bottom: 10px;
       }
-      .passenger-info strong, .flight-info strong {
+      .passenger-info strong, .flight-info strong, .seat-info strong, .pet-info strong {
         display: inline-block;
         width: 150px;
         color: #333;
@@ -56,26 +56,55 @@
 
       <div class="section-title">Passengers</div>
       <div class="passenger-info">
-        <% @passenger_info[:adults].each do |passenger| %>
+        <% @passenger_info[:adults].each_with_index do |passenger, index| %>
           <div><strong>Name:</strong> <%= passenger[:first_name] %> <%= passenger[:last_name] %></div>
           <div><strong>Gender:</strong> <%= passenger[:gender].capitalize %></div>
           <div><strong>Date of Birth:</strong> <%= passenger[:DD] %>-<%= passenger[:MM] %>-<%= passenger[:YYYY] %></div>
           <div><strong>Passport Number:</strong> <%= passenger[:passport] %></div>
+          <div><strong>Seat (Departure):</strong> <%= @seatDeparture[index] %></div>
+          <div><strong>Seat (Return):</strong> <%= @seatReturn[index] %></div>
           <br>
+        <% end %>
+
+        <% if @passenger_info[:children].present? %>
+          <% @passenger_info[:children].each_with_index do |child, index| %>
+            <div><strong>Name:</strong> <%= child[:first_name] %> <%= child[:last_name] %></div>
+            <div><strong>Gender:</strong> <%= child[:gender].capitalize %></div>
+            <div><strong>Date of Birth:</strong> <%= child[:DD] %>-<%= child[:MM] %>-<%= child[:YYYY] %></div>
+            <div><strong>Passport Number:</strong> <%= child[:passport] %></div>
+            <div><strong>Seat (Departure):</strong> <%= @seatDeparture[@passenger_info[:adults].size + index] %></div>
+            <div><strong>Seat (Return):</strong> <%= @seatReturn[@passenger_info[:adults].size + index] %></div>
+            <br>
+          <% end %>
         <% end %>
       </div>
 
-      <div class="section-title">Flight Information</div>
+      <% if @passenger_info[:pets].present? %>
+        <div class="section-title">Pets</div>
+        <div class="pet-info">
+          <% @passenger_info[:pets].each do |pet| %>
+            <div><strong>Pet Name:</strong> <%= pet[:pet_name] %></div>
+            <div><strong>Gender:</strong> <%= pet[:pet_gender].capitalize %></div>
+            <div><strong>Species:</strong> <%= pet[:species].capitalize %></div>
+            <br>
+          <% end %>
+        </div>
+      <% end %>
+
+      <div class="section-title">Flight Information - Departure</div>
       <div class="flight-info">
-        <div><strong>Departure Flight Number:</strong> <%= @selectedDepartureFlight[:flight_number] %></div>
+        <div><strong>Flight Number:</strong> <%= @selectedDepartureFlight[:flight_number] %></div>
         <div><strong>Departure Date:</strong> <%= @selectedDepartureFlight[:departure_date] %></div>
         <div><strong>Departure Time:</strong> <%= Time.parse(@selectedDepartureFlight[:departure_time]).strftime('%H:%M') %></div>
         <div><strong>Origin Airport:</strong> <%= @selectedDepartureFlight[:origin_airport] %></div>
         <div><strong>Destination Airport:</strong> <%= @selectedDepartureFlight[:destination_airport] %></div>
         <div><strong>Arrival Date:</strong> <%= @selectedDepartureFlight[:arrival_date] %></div>
         <div><strong>Arrival Time:</strong> <%= Time.parse(@selectedDepartureFlight[:arrival_time]).strftime('%H:%M') %></div>
-        <br>
-        <div><strong>Return Flight Number:</strong> <%= @selectedReturnFlight[:flight_number] %></div>
+      </div>
+
+      <div class="section-title">Flight Information - Arrival</div>
+      <div class="flight-info">
+        <div><strong>Flight Number:</strong> <%= @selectedReturnFlight[:flight_number] %></div>
         <div><strong>Return Date:</strong> <%= @selectedReturnFlight[:departure_date] %></div>
         <div><strong>Return Time:</strong> <%= Time.parse(@selectedReturnFlight[:departure_time]).strftime('%H:%M') %></div>
         <div><strong>Origin Airport:</strong> <%= @selectedReturnFlight[:origin_airport] %></div>
@@ -86,10 +115,25 @@
 
       <div class="section-title">Price Summary</div>
       <div class="flight-info">
-        <% per_passenger_cost = @total.to_f / @passenger_info[:adults].size %>
+        <% total_passengers = @passenger_info[:adults].size + (@passenger_info[:children]&.size || 0) + (@passenger_info[:pets]&.size || 0) %>
+        <% per_passenger_cost = @total.to_f / total_passengers %>
+        
         <% @passenger_info[:adults].each do |passenger| %>
           <p><strong><%= passenger[:first_name] %> <%= passenger[:last_name] %>:</strong> $<%= sprintf('%.2f', per_passenger_cost) %></p>
         <% end %>
+
+        <% if @passenger_info[:children].present? %>
+          <% @passenger_info[:children].each do |child| %>
+            <p><strong><%= child[:first_name] %> <%= child[:last_name] %>:</strong> $<%= sprintf('%.2f', per_passenger_cost) %></p>
+          <% end %>
+        <% end %>
+
+        <% if @passenger_info[:pets].present? %>
+          <% @passenger_info[:pets].each do |pet| %>
+            <p><strong><%= pet[:pet_name] %>:</strong> $<%= sprintf('%.2f', per_passenger_cost) %></p>
+          <% end %>
+        <% end %>
+        
         <p><strong>Total:</strong> $<%= sprintf('%.2f', @total) %></p>
       </div>
 
@@ -115,5 +159,3 @@
     </div>
   </body>
 </html>
-
-

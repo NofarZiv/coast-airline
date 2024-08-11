@@ -216,13 +216,13 @@ aircrafts.each do |aircraft|
 end
 seats = Seat.create!(seats)
 
-# Find the aircraft for the specified flights
-ac101_flight = Flight.find_by(flight_number: 'AC101')
-ac104_flight = Flight.find_by(flight_number: 'AC104')
+# # Find the aircraft for the specified flights
+# ac101_flight = Flight.find_by(flight_number: 'AC101')
+# ac104_flight = Flight.find_by(flight_number: 'AC104')
 
-# Mark specific seats as unavailable by finding the corresponding seat in the aircraft
-Seat.find_by(aircraft: ac101_flight.aircraft, seat_number: '1A').update!(available: false)
-Seat.find_by(aircraft: ac104_flight.aircraft, seat_number: '1F').update!(available: false)
+# # Mark specific seats as unavailable by finding the corresponding seat in the aircraft
+# Seat.find_by(aircraft: ac101_flight.aircraft, seat_number: '1A').update!(available: false)
+# Seat.find_by(aircraft: ac104_flight.aircraft, seat_number: '1F').update!(available: false)
 
 # Create orders to represent the taken seats
 Order.create!([

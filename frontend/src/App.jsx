@@ -105,11 +105,17 @@ function App() {
   const total = searchData && selectedDepartureFlight && selectedReturnFlight ? 
     totalPassengers * (selectedDepartureFlight.flight_price + selectedReturnFlight.flight_price) : 0;
 
-   const sendEmail = async () => {
-    console.log(formData)
-      await axios.post("/api/send_email", {formData, selectedDepartureFlight, selectedReturnFlight} )
-    
-    }
+    const sendEmail = async () => {
+      console.log(formData);
+      await axios.post("/api/send_email", {
+        formData, 
+        selectedDepartureFlight, 
+        selectedReturnFlight,
+        total,
+        seatDeparture,
+        seatReturn
+      });
+    };
 
 
   return (
