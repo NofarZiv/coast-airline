@@ -1,74 +1,59 @@
-.top-nav-bar__logo {
-  text-decoration: overline;
-  font-weight: 500;
-  font-size: 24px;
-  color: #111;
-  text-underline-position: auto;
-  margin-left: -450px;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', sans-serif;
-  background-color: #fcfcfc;
+.navbar {
+  background-color: #61cbe6; /* Blue color */
+  width: 100%;
+  height: 80px; /* Decent height for a navbar */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed; /* Stays constant through all pages */
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 .container {
-  /* max-width: 1100px; */
   width: 100%;
-  margin: 0 auto;
-  /* padding: 0 500px; */
+  max-width: 1200px; /* Optional: Max width for better layout on large screens */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100%;
+  padding: 0 20px;
 }
 
-.navbar {
-  width: 100%;
-  height: 80px;
-  padding: 0 500px;
-  background-color: #78c8e7;
-  position: relative;
-  /* margin-bottom: 20%; */
-  margin-right: 200px;
-  margin-top: -480px;
+.top-nav-bar__logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
 }
-
 
 .nav-elements ul {
-  display: flex;
-  justify-content: space-between;
   list-style-type: none;
+  display: flex;
+  gap: 20px; /* Space between navigation items */
+  margin: 0;
+  padding: 0;
 }
 
-
-.nav-elements ul li:not(:last-child) {
-  margin-right: 60px;
+.nav-elements ul li {
+  font-size: 18px;
 }
 
-.nav-elements ul a {
-  font-size: 16px;
-  font-weight: 400;
-  color: #2f234f;
+.nav-elements ul li a {
+  color: #ffffff;
   text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
 }
 
-.nav-elements ul a.active {
-  color: #574c4c;
-  font-weight: 500;
-  position: relative;
+.nav-elements ul li a:hover {
+  background-color: #0056b3; /* Darker blue on hover */
 }
 
-.nav-elements ul a.active::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: #574c4c;
+/* Optional: Add active class for the current page */
+.nav-elements ul li a.active {
+  background-color: #0056b3;
 }
 
 
