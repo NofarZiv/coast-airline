@@ -18,6 +18,7 @@ const Search = (props) => {
   return (
     <form className="search" onSubmit={handleSubmit((onSubmitSearch))}>
 
+     <div className="search__row">
       <select {...register("origin_airport", { required: "Please select a valid point of origin" })}>
         <option value="">Where to?</option>
         <option value="Toronto">Toronto</option>
@@ -61,7 +62,10 @@ const Search = (props) => {
         <option value="Road Town">Road Town, British Virgin Islands</option>
       </select>
       <p>{errors.destination_airport?.message}</p>
-
+    
+    <div className="date-picker-wrapper">
+    <div className="date-picker-container">
+      <span className="calendar-icon">📅</span>
       <Controller
         control={control}
         name="departure_date"
@@ -69,7 +73,7 @@ const Search = (props) => {
         render={({ field }) => (
           <DatePicker
             selectsStart
-            placeholderText="Departure"
+            placeholderText="Departure date"
             selected={field.value || startDate}
             onChange={(date) => {
               field.onChange(date)
@@ -80,8 +84,10 @@ const Search = (props) => {
           />
         )}
       />
+      </div>
       <p>{errors.departure_date?.message}</p>
 
+      <div className="date-picker-container">
       <Controller
         control={control}
         name="return_date"
@@ -89,7 +95,7 @@ const Search = (props) => {
         render={({ field }) => (
           <DatePicker
             selectsEnd
-            placeholderText="Return"
+            placeholderText="Return date"
             selected={field.value || endDate}
             onChange={(date) => {
               field.onChange(date);
@@ -102,8 +108,12 @@ const Search = (props) => {
           />
         )}
       />
+      </div>
       <p>{errors.return_date?.message}</p>
-
+      </div>
+      </div>
+      
+      
       
       <Select register={register} errors={errors} setValue={setValue}/>
 

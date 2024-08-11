@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import '../styles/PassengerModal.css';
 
 const PassengerModal = (props) => {
 
@@ -73,7 +74,7 @@ const PassengerModal = (props) => {
       
       <button type="button" onClick={onClose}>Close</button>
     </article>
-    
+
   )
 }
 
