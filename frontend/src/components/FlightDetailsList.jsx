@@ -1,4 +1,5 @@
 import FlightDetailsItem from "./FlightDetailsItem";
+import '../styles/FlightDetailsList.css';
 
 const FlightDetailsList = (props) => {
 
@@ -21,7 +22,7 @@ const FlightDetailsList = (props) => {
   })
 
   return(
-    <div>
+    <div className="flight-details-list">
     {flightList}
     </div>
   )

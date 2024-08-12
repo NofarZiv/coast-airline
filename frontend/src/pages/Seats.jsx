@@ -1,5 +1,6 @@
 import Seat from "../components/Seat";
 import { useState } from "react";
+import '../styles/Seats.css';
 
 
 const Seats = (props) => {
@@ -38,14 +39,16 @@ const Seats = (props) => {
   
 
   return(
-    <div>
+    <div className="seat-selection-container">
+      <div className="buttons-container">
       <button onClick={handleToggle} disabled={isDeparture}>Departure</button>
       <button onClick={handleToggle} disabled={!isDeparture}>Return</button>
+      </div>
       <Seat
         key={isDeparture ? 'departure' : 'return'}
         onSelectedSeat={onSelectedSeat} selectedSeat={isDeparture ? seatDeparture : seatReturn}
       />
-      <button onClick={handleSeatsSelection}>Next</button>
+      <button className="button" onClick={handleSeatsSelection}>Next</button>
     </div>
   )
 }

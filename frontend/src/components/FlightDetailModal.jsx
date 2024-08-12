@@ -27,20 +27,44 @@ const FlightDetailModal = (props) => {
   return(
     <article className="modal-overlay">
       <div className="modal-content">
-      <h3>Flight Details</h3>
-      <span>{flights.departure_date}</span>
-      <span>{formattedDepartureTime}</span>
-      <span>{flights.origin_airport}</span>
-      <span>{flights.departure_terminal}</span>
-      <span>{flights.flight_number}</span>
-      <span>{flights.aircraft_id}</span>
-      <span>{formattedFlightDuration}</span>
-      <span>{flights.wifi_available}</span>
-      <span>{flights.arrival_terminal}</span>
-      <span>{flights.destination_airport}</span>
-      <span>{formattedArrivalTime}</span>
-      <span>{flights.arrival_date}</span>
-      <button onClick={onClose}>Close</button>
+        <h3>Flight Details</h3>
+        <div className="detail-line">
+          <span>Departure Date:</span><span>{flights.departure_date}</span>
+        </div>
+        <div className="detail-line">
+          <span>Departure Time:</span><span>{formattedDepartureTime}</span>
+        </div>
+        <div className="detail-line">
+          <span>Departure Airport:</span><span>{flights.origin_airport}</span>
+        </div>
+        <div className="detail-line">
+          <span>Departure Terminal:</span><span>{flights.departure_terminal}</span>
+        </div>
+        <div className="detail-line">
+          <span>Flight Number:</span><span>{flights.flight_number}</span>
+        </div>
+        <div className="detail-line">
+          <span>Aircraft ID:</span><span>{flights.aircraft_id}</span>
+        </div>
+        <div className="detail-line">
+          <span>Flight Duration:</span><span>{formattedFlightDuration}</span>
+        </div>
+        <div className="detail-line">
+          <span>Wi-Fi Available:</span><span>{flights.wifi_available}</span>
+        </div>
+        <div className="detail-line">
+          <span>Arrival Terminal:</span><span>{flights.arrival_terminal}</span>
+        </div>
+        <div className="detail-line">
+          <span>Destination Airport:</span><span>{flights.destination_airport}</span>
+        </div>
+        <div className="detail-line">
+          <span>Arrival Time:</span><span>{formattedArrivalTime}</span>
+        </div>
+        <div className="detail-line">
+          <span>Arrival Date:</span><span>{flights.arrival_date}</span>
+        </div>
+        <button onClick={onClose}>Close</button>
       </div>
     </article>
   )
