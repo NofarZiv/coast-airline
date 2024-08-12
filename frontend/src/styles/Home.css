@@ -5,8 +5,8 @@
 }
 
 .search-wrapper {
-  margin-top: -65rem; /* Adjust this value to move the Search component closer to the navbar */
-  padding: 0 1rem;
+  /* margin-top: -65rem; Adjust this value to move the Search component closer to the navbar */
+  /* padding: 0 1rem; */
 }
 
 @media (max-width: 768px) {

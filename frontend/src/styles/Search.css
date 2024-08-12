@@ -1,6 +1,6 @@
 .search-background {
-  width: 100vw; /* Full viewport width */
-  margin-left: calc(-50vw + 50%); /* Center the full-width background */
+  width: 100%; /* Full viewport width */
+  /* margin-left: calc(-50vw + 50%); Center the full-width background */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -16,8 +16,8 @@
   padding: 3rem; /* Increased padding for the form */
   border-radius: 15px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-left: 2rem; 
-  transform: translateX(950px); 
+  margin-inline: 1rem; 
+  /* transform: translateX(950px);  */
 }
 
 .search {

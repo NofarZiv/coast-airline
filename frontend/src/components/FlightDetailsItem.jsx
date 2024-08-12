@@ -33,7 +33,7 @@ const FlightDetailsItem = (props) => {
     <>
     <div className="flight-details-wrapper">
     <article className={`flight-details-item ${isSelected ? 'selected' : ''}`} onClick={handleArticleClick}>
-      <div className="flight-details-item-content">
+      <div className="flight-details-item-content flight-time">
         <div className="departure-time">{formattedDepartureTime}</div>
         <div className="flight-line"></div>
         <div className="arrival-time">{formattedArrivalTime}</div>

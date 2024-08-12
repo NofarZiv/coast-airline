@@ -48,7 +48,9 @@ const Seats = (props) => {
         key={isDeparture ? 'departure' : 'return'}
         onSelectedSeat={onSelectedSeat} selectedSeat={isDeparture ? seatDeparture : seatReturn}
       />
+      <div className="seats-button-container">
       <button className="button" onClick={handleSeatsSelection}>Next</button>
+      </div>
     </div>
   )
 }

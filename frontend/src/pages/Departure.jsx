@@ -11,11 +11,13 @@ const Departure = (props) => {
   return(
     <>
     <div className="departure">
-    <h2>Departing Flights</h2>
-    <FlightDetailsList flights={flights_to_destination} onSelectFlight ={onSelectFlight } />
-    <Link to="/return" >
-    <button className="link-button">Next</button>
-    </Link>
+      <h2>Departing Flights</h2>
+      <FlightDetailsList flights={flights_to_destination} onSelectFlight ={onSelectFlight } />
+      <div className="return-link-container">
+        <Link to="/return" >
+          <button className="depature-link-button">Next</button>
+        </Link>
+      </div>
     </div>
     
     </>

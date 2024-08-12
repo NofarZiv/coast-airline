@@ -1,7 +1,7 @@
 /* Styling for the passenger section */
 .passenger-section {
   margin-top: 6%;
-  width: 150%;
+  width: 98%;
   padding: 0 20px; /* Optional: add horizontal padding for spacing */
   box-sizing: border-box;
   background: #ffffff;
@@ -10,7 +10,7 @@
   padding: 30px;
   margin-bottom: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slight shadow for a lifted look */
-  margin-left: -1%;
+  margin-inline: auto;
   background-color: rgb(182, 201, 230);
   position: relative;
 }
@@ -27,9 +27,9 @@
 }
 
 .passenger-row {
-  width: 70%;
+  /* width: 70%; */
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   gap: 1px; /* Space between items */
   margin-bottom: 20px;
 }
@@ -46,6 +46,7 @@
   display: block;
   box-sizing: border-box; /* Ensure padding is included in width */
   background-color: #f9f9f9; /* Light background for inputs */
+  color: black
   
 }
 

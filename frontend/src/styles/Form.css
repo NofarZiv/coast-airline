@@ -16,7 +16,13 @@
   
 }
 
-.button {
+.form-button-container {
+  width: 98%;
+  display:flex;
+  justify-content: flex-end;
+}
+
+.form-button {
   display: inline-block;
   padding: 10px 20px;
   background-color: aqua;
@@ -26,9 +32,9 @@
   text-align: center;
   font-size: 16px;
   margin-top: 20px;
-  position: relative; 
-  bottom: -70px; /* Distance from the bottom */
-  left: 1650px; /* Distance from the right */
+  position: static; 
+  bottom: 0; /* Distance from the bottom */
+  left: 0; /* Distance from the right */
 }
 
 .button:hover {
