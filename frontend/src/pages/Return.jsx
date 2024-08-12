@@ -13,9 +13,11 @@ const Return = (props) => {
     <div className="return">
     <h2>Returning Flights</h2>
     <FlightDetailsList flights={flights_from_destination} onSelectFlight={onSelectFlight } />
+    <div className="return-link-container">
     <Link to="/form">
     <button className="link-button">Next</button>
     </Link>
+    </div>
     </div>
     </>
   )

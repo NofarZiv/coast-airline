@@ -1,32 +1,31 @@
-html, body {
-  height: 100%;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 35%;
-}
+
 
 .departure {
   padding: 20px;
-  background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
-  border-radius: 12px;
-  max-width: 1200px;
+  background-color: rgba(255, 255, 255, 0.867); /* Slightly transparent background */
+  /* border-radius: 12px; */
+  width: 100%;
   margin: 0 auto;
   position: relative;
-  margin-top: -50em; /* Adjust according to your navbar height */
+  margin-top: 5em; /* Adjust according to your navbar height */
 
 }
 
+.return-link-container {
+  display: flex;
+  width: 98%;
+  justify-content: flex-end;
+}
+
 .departure h2 {
-  margin: 0 0 80px 0;;
+  margin: 0 0 0.5em 0;;
   padding: 25px;
   font-size: 40px;
   font-weight: bold;
   text-align: center;
 }
 
-.link-button {
+.depature-link-button {
   display: inline-block;
   padding: 10px 20px;
   background-color: aqua;
@@ -36,9 +35,9 @@ html, body {
   text-align: center;
   font-size: 16px;
   margin-top: 20px;
-  position: fixed; /* Fixed positioning relative to the viewport */
-  bottom: 50px; /* Distance from the bottom */
-  right: 50px; /* Distance from the right */
+  /* position: fixed; Fixed positioning relative to the viewport */
+  /* bottom: 50px; Distance from the bottom */
+  /* right: 50px; Distance from the right */
 }
 
 .link-button:hover {

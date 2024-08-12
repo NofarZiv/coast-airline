@@ -1,8 +1,12 @@
 .flight-details-wrapper {
-  width: 260%;
+  /* width: 260%; */
   padding: 0 20px; /* Optional: add horizontal padding for spacing */
   box-sizing: border-box;
 
+}
+
+.flight-time {
+  padding-right: 2em;
 }
 
 .flight-details-item {
@@ -44,13 +48,22 @@
 
 .departure-airport, .arrival-airport {
   font-size: 16px;
+  /* padding-left: 1em; */
+}
+
+.arrival-airport {
+  padding-left: 1em;
+}
+
+.departure-airport {
+  padding-right: 1em;
 }
 
 .flight-path {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 80%;
+  width: 105%;
 }
 
 .flight-path .line {
