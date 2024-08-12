@@ -95,18 +95,18 @@
       <div class="flight-info">
         <div><strong>Flight Number:</strong> <%= @selectedDepartureFlight[:flight_number] %></div>
         <div><strong>Departure Date:</strong> <%= @selectedDepartureFlight[:departure_date] %></div>
-        <div><strong>Departure Time:</strong> <%= Time.parse(@selectedDepartureFlight[:departure_time]).strftime('%H:%M') %></div>
+        <div><strong>Boarding Time:</strong> <%= Time.parse(@selectedDepartureFlight[:departure_time]).strftime('%H:%M') %></div>
         <div><strong>Origin Airport:</strong> <%= @selectedDepartureFlight[:origin_airport] %></div>
         <div><strong>Destination Airport:</strong> <%= @selectedDepartureFlight[:destination_airport] %></div>
         <div><strong>Arrival Date:</strong> <%= @selectedDepartureFlight[:arrival_date] %></div>
         <div><strong>Arrival Time:</strong> <%= Time.parse(@selectedDepartureFlight[:arrival_time]).strftime('%H:%M') %></div>
       </div>
 
-      <div class="section-title">Flight Information - Arrival</div>
+      <div class="section-title">Flight Information - Return</div>
       <div class="flight-info">
         <div><strong>Flight Number:</strong> <%= @selectedReturnFlight[:flight_number] %></div>
         <div><strong>Return Date:</strong> <%= @selectedReturnFlight[:departure_date] %></div>
-        <div><strong>Return Time:</strong> <%= Time.parse(@selectedReturnFlight[:departure_time]).strftime('%H:%M') %></div>
+        <div><strong>Boarding Time:</strong> <%= Time.parse(@selectedReturnFlight[:departure_time]).strftime('%H:%M') %></div>
         <div><strong>Origin Airport:</strong> <%= @selectedReturnFlight[:origin_airport] %></div>
         <div><strong>Destination Airport:</strong> <%= @selectedReturnFlight[:destination_airport] %></div>
         <div><strong>Arrival Date:</strong> <%= @selectedReturnFlight[:arrival_date] %></div>
