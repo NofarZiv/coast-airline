@@ -1,0 +1,28 @@
+.seat-selection-container{
+  margin-top: 40%;
+
+}
+
+.buttons-container{
+  margin-left: -90%;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: aqua;
+  color: #131112;
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 16px;
+  margin-top: 20px;
+  position: relative; 
+  bottom: -70px; /* Distance from the bottom */
+  left: 800px; /* Distance from the right */
+
+}
+
+.button:hover {
+  background-color: #0056b3;
+}

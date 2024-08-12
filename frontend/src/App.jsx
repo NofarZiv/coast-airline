@@ -27,6 +27,7 @@ function App() {
   console.log(seatDeparture)
   console.log(seatReturn)
   console.log(formData)
+  console.log(selectedDepartureFlight)
   
   const navigate = useNavigate()
 

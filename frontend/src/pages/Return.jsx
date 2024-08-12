@@ -1,5 +1,6 @@
 import FlightDetailsList from "../components/FlightDetailsList";
 import { Link } from "react-router-dom";
+import '../styles/Return.css';
 
 const Return = (props) => {
 
@@ -9,11 +10,13 @@ const Return = (props) => {
 
   return(
     <>
-    <h2>Return Flights</h2>
+    <div className="return">
+    <h2>Returning Flights</h2>
     <FlightDetailsList flights={flights_from_destination} onSelectFlight={onSelectFlight } />
     <Link to="/form">
-    <button>Next</button>
+    <button className="link-button">Next</button>
     </Link>
+    </div>
     </>
   )
 }

@@ -1,0 +1,85 @@
+/* Styling for the passenger section */
+.passenger-section {
+  margin-top: 6%;
+  width: 150%;
+  padding: 0 20px; /* Optional: add horizontal padding for spacing */
+  box-sizing: border-box;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #f3f5f7; /* Border color to match the theme */
+  padding: 30px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slight shadow for a lifted look */
+  margin-left: -1%;
+  background-color: rgb(182, 201, 230);
+  position: relative;
+}
+
+/* Title styling */
+.passenger-section h3 {
+  font-size: 22px;
+  font-weight: 500;
+  color: #003366; /* Dark blue for a professional touch */
+  margin-bottom: 15px;
+  border-bottom: 2px solid #92b7df; /* Underline with accent color */
+  padding-bottom: 10px;
+  display: inline-block;
+}
+
+.passenger-row {
+  width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1px; /* Space between items */
+  margin-bottom: 20px;
+}
+
+/* Input fields styling */
+.passenger-section input,
+.passenger-section select {
+  width: calc(90% - 24px);
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 25px; /* High value for fully rounded fields */
+  font-size: 16px;
+  margin-bottom: 13px;
+  display: block;
+  box-sizing: border-box; /* Ensure padding is included in width */
+  background-color: #f9f9f9; /* Light background for inputs */
+  
+}
+
+
+.birthday{
+  width: calc(64% - 32px);
+}
+
+.passenger-row .input-group {
+  flex: 1 1 auto; /* Allows items to grow and shrink, with a minimum width */
+  /* margin-bottom: 15px; */
+} 
+
+/* Input fields focus styling */
+.passenger-section input:focus,
+.passenger-section select:focus {
+  border-color: #eef1f5;
+  outline: none;
+}
+
+/* Error message styling */
+.passenger-section p {
+  color: #e74c3c; /* Red for errors */
+  font-size: 14px;
+  margin: 0 0 10px;
+}
+
+/* Ensure each input field is spaced properly */
+.passenger-section input{
+  margin-bottom: 15px;
+}
+
+.passenger-section p {
+  color: #e74c3c; /* Red for errors */
+  font-size: 14px;
+  margin: 0 0 10px;
+}

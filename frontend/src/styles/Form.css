@@ -1,8 +1,36 @@
 
-.button{
-  background-color: blueviolet;
-}
 
 .form{
-  margin-top: 30em;
+  margin-top: 15em;
+  margin-left: 2%;
+  padding-bottom: 100px;
+  position: relative;
+}
+
+.form h1 {
+  text-align: left;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  padding-left: 10px;
+  
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: aqua;
+  color: #131112;
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 16px;
+  margin-top: 20px;
+  position: relative; 
+  bottom: -70px; /* Distance from the bottom */
+  left: 1650px; /* Distance from the right */
+}
+
+.button:hover {
+  background-color: #0056b3;
 }
