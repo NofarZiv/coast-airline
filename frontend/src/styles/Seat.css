@@ -132,7 +132,7 @@ ol {
     font-weight: bold;
     line-height: 1.5rem;
     padding: 4px 0;
-    background: #1c9ed1;
+    background: #e7896c;
     border-radius: 5px;
     animation-duration: 300ms;
     animation-fill-mode: both;
@@ -155,6 +155,8 @@ ol {
     
   }
 }
+
+
 
 @-webkit-keyframes rubberBand {
   0% {

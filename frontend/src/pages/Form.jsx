@@ -5,7 +5,6 @@ import Contact from "../components/Contact";
 import '../styles/Form.css';
 
 
-
 const Form = (props) => {
 
   const { searchData, onSubmitForm } = props;
@@ -49,7 +48,9 @@ const Form = (props) => {
 
   return(
     <form className="form" onSubmit={handleSubmit(onSubmitForm)}>
+      <div className="overlay">
       <h1>Tell us about yourself !</h1>
+      </div>
       {adultRender}
       {childRender}
       {petRender}
