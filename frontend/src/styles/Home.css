@@ -6,17 +6,12 @@
   background-color: antiquewhite;
 }
 
-.search-wrapper {
-  /* margin-top: -65rem; Adjust this value to move the Search component closer to the navbar */
-  /* padding: 0 1rem; */
-}
 
 @media (max-width: 768px) {
   .search-wrapper {
     margin-top: -1rem; /* Adjust for mobile view */
   }
 }
-
 
 .promo-list {
   display: grid;
