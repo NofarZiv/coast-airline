@@ -1,10 +1,10 @@
 .seat-selection-container{
-  margin-top: 6%;
-  background-color: aliceblue
+  margin-top: 4%;
+  background-color: rgb(150, 193, 231)
 }
 
 .buttons-container{
-  margin-left: 10em;
+  margin-left: 8em;
   padding-top: 3em;
 }
 
@@ -15,11 +15,11 @@
   padding-bottom: 2em;
 }
 
-.button {
+.seats-button {
   display: inline-block;
   padding: 10px 20px;
-  background-color: aqua;
-  color: #61cbe6;
+  background-color: #e7896c;
+  color: #121414;
   text-decoration: none;
   border-radius: 5px;
   text-align: center;
@@ -28,9 +28,77 @@
   position: static; 
   bottom: 0; /* Distance from the bottom */
   left: 0; /* Distance from the right */
-
+  
 }
 
 .button:hover {
   background-color: #0056b3;
+}
+
+
+body{
+  background:-webkit-linear-gradient( #b2d8ff , #8bb5e0);
+  height:700px;;
+}
+#cloud1{
+  width:400px;
+  height:100px;
+  background:#e5f3ff;
+  margin:140px 0 0 0;
+  border-radius:50px;
+  -webkit-transform:translateX(-400px);
+  -webkit-animation: move 60s linear infinite ;
+  display:block-inline;
+}
+#cloud1:before{
+  content:"";
+  position:absolute;
+  width:180px;
+  height:180px;
+  background:#e5f3ff;
+  border-radius:50%;
+  margin:-100px 0 0 20px;
+}
+#cloud1:after{
+  content:"";
+  position:absolute;
+  width:120px;
+  height:120px;
+  background:#e5f3ff;
+  border-radius:50%;
+  margin:-60px 0 0 165px;
+}
+#cloud2{
+  width:200px;
+  height:70px;
+  background:#e5f3ff;
+  margin:60px 0 0 300px;
+  border-radius:50px;
+  -webkit-transform:translateX(-520px);
+  -webkit-animation: move 12s linear infinite ;
+  display:block-inline;
+}
+#cloud2:before{
+  content:"";
+  position:absolute;
+  width:120px;
+  height:120px;
+  background:#e5f3ff;
+  border-radius:50%;
+  margin:-70px 0 0 20px;
+}
+#cloud2:after{
+  content:"";
+  position:absolute;
+  width:90px;
+  height:90px;
+  background:#e5f3ff;
+  border-radius:50%;
+  margin:-40px 0 0 100px;
+}
+@-webkit-keyframes move {
+  0%{-webkit-transform:translateX(-340px);opacity:0;}
+  20%{opacity:1;}
+  90%{opacity:1;}
+  100%{-webkit-transform:translateX(1650px);opacity:0;}
 }

@@ -41,13 +41,17 @@ const Seats = (props) => {
   return(
     <div className="seat-selection-container">
       <div className="buttons-container">
-      <button onClick={handleToggle} disabled={isDeparture}>Departure</button>
-      <button onClick={handleToggle} disabled={!isDeparture}>Return</button>
-      </div>
+      <div id="cloud1"></div>
+      <div id="cloud2"></div>
+      <button className="seats-button" onClick={handleToggle} disabled={isDeparture}>Departure</button>
+      <button className="seats-button" onClick={handleToggle} disabled={!isDeparture}>Return</button>
       <Seat
         key={isDeparture ? 'departure' : 'return'}
         onSelectedSeat={onSelectedSeat} selectedSeat={isDeparture ? seatDeparture : seatReturn}
       />
+      </div>
+      <div id="cloud1"></div>
+      <div id="cloud2"></div>
       <div className="seats-button-container">
       <button className="button" onClick={handleSeatsSelection}>Next</button>
       </div>
