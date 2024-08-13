@@ -2,6 +2,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import { useCallback } from 'react';
 import { EmbeddedCheckout, EmbeddedCheckoutProvider } from '@stripe/react-stripe-js';
 import { Link } from 'react-router-dom';
+import '../styles/Payment.css';
 
 const Payment = (props) => {
   const { total } = props;
@@ -24,7 +25,7 @@ const options = { fetchClientSecret };
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
 
   return (
-    <div>
+    <div className="payment">
       <EmbeddedCheckoutProvider stripe={stripePromise} options={options}>
         <EmbeddedCheckout />
       </EmbeddedCheckoutProvider>
