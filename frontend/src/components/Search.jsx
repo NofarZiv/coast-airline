@@ -19,9 +19,9 @@ const Search = (props) => {
       <form className="search" onSubmit={handleSubmit((onSubmitSearch))}>
         <div className="search__inputs-container">
           <div className="search__row">
-            <div className="search__input-group large-input">
-              <select className="search__input" {...register("origin_airport", { required: "Please select a valid point of origin" })}>
-                <option value="">Where to?</option>
+          <div className="search__input-group large-input">
+              <select className="search__input" {...register("origin_airport", { required: "Please select a valid destination" })}>
+                <option value="">Where from?</option>
                 <option value="Toronto">Toronto</option>
                 <option value="Vancouver">Vancouver</option>
                 <option value="Montreal">Montreal</option>
@@ -42,10 +42,11 @@ const Search = (props) => {
               </select>
               <p className="search__error">{errors.origin_airport?.message}</p>
             </div>
+          </div>
 
-            <div className="search__input-group large-input">
-              <select className="search__input" {...register("destination_airport", { required: "Please select a valid destination" })}>
-                <option value="">Where from?</option>
+          <div className="search__input-group large-input">
+              <select className="search__input" {...register("destination_airport", { required: "Please select a valid point of origin" })}>
+                <option value="">Where to?</option>
                 <option value="Toronto">Toronto</option>
                 <option value="Vancouver">Vancouver</option>
                 <option value="Montreal">Montreal</option>
@@ -66,7 +67,6 @@ const Search = (props) => {
               </select>
               <p className="search__error">{errors.destination_airport?.message}</p>
             </div>
-          </div>
 
           <div className="search__grid">
             <div className="search__input-group small-input">

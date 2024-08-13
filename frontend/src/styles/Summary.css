@@ -1,0 +1,95 @@
+
+
+.summary-container {
+  width: 80%;
+  margin: 40px auto;
+  background-color: #fff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+
+.summary-container h1 {
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center; /* Center align the title */
+  margin-bottom: 30px;
+}
+
+
+.trip-summary {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.trip-summary > div {
+  width: 48%;
+  border: 2px solid #007bff;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: #f0f8ff;
+}
+
+.trip-summary span,
+.trip-summary div {
+  display: block;
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.trip-summary button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.trip-summary button:hover {
+  background-color: #0056b3;
+}
+
+
+.payment-summary {
+  border: 2px solid #28a745;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #e9f9e9;
+  margin-bottom: 20px;
+}
+
+.payment-summary p {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+
+.next-button {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  background-color: #ffc107;
+  color: #333;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.next-button:hover {
+  background-color: #e0a800;
+}
+
+
