@@ -24,10 +24,8 @@ function App() {
   const [email, setEmail] = useState();
   const [formData, setFormData] = useState()
 
-  console.log(seatDeparture)
-  console.log(seatReturn)
-  console.log(formData)
-  console.log(selectedDepartureFlight)
+  
+  console.log(email)
   
   const navigate = useNavigate()
 

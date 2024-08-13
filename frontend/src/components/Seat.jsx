@@ -441,7 +441,7 @@ const Seat = (props) => {
       <ol className="seats" type="A">
         <li className="seat">
           <input checked={selectedSeat.includes("16A")} onClick={() => onSelectedSeat('16A')} type="checkbox" id="16A" />
-          <label htmlFor="16A">162A</label>
+          <label htmlFor="16A">16A</label>
         </li>
         <li className="seat">
           <input checked={selectedSeat.includes("16B")} onClick={() => onSelectedSeat('16B')} type="checkbox" id="16B" />
