@@ -24,7 +24,7 @@ function App() {
   const [email, setEmail] = useState();
   const [formData, setFormData] = useState()
 
-  
+  console.log(formData)
   console.log(email)
   
   const navigate = useNavigate()

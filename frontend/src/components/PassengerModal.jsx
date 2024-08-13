@@ -1,13 +1,16 @@
 import { useState, useEffect } from "react";
 import '../styles/PassengerModal.css';
+import usePassenger from "../hooks/usePassenger";
 
 const PassengerModal = (props) => {
 
   const {onClickPassenger, register, setValue} = props;
 
-  const [adult, setAdult] = useState(1)
-  const [child, setChild] = useState(0)
-  const [pet, setPet] = useState(0)
+const {adult, child, pet, handleIncrement, handleDecrement} = usePassenger(setValue)
+
+  // const [adult, setAdult] = useState(1)
+  // const [child, setChild] = useState(0)
+  // const [pet, setPet] = useState(0)
   const [close, setClose] = useState(false)
 
   const onClose = () => {
@@ -15,31 +18,31 @@ const PassengerModal = (props) => {
     onClickPassenger()
   }
 
-  const handleIncrement = (type) => {
-    if (type === 'adult') {
-      setAdult(adult + 1)
-    } else if (type === 'child') {
-      setChild(child + 1)
-    } else {
-      setPet(pet + 1)
-    }
-  }
+  // const handleIncrement = (type) => {
+  //   if (type === 'adult') {
+  //     setAdult(adult + 1)
+  //   } else if (type === 'child') {
+  //     setChild(child + 1)
+  //   } else {
+  //     setPet(pet + 1)
+  //   }
+  // }
 
-  const handleDecrement = (type) => {
-    if (type === 'adult' && adult > 1) {
-      setAdult(adult - 1)
-    } else if (type === 'child' && child > 0) {
-      setChild(child - 1)
-    } else if (type === 'pet' && pet > 0) {
-      setPet(pet - 1)
-    }
-  }
+  // const handleDecrement = (type) => {
+  //   if (type === 'adult' && adult > 1) {
+  //     setAdult(adult - 1)
+  //   } else if (type === 'child' && child > 0) {
+  //     setChild(child - 1)
+  //   } else if (type === 'pet' && pet > 0) {
+  //     setPet(pet - 1)
+  //   }
+  // }
 
-  useEffect(() => {
-    setValue("adult", adult);
-    setValue("child", child);
-    setValue("pet", pet);
-  }, [adult, child, pet, setValue]);
+  // useEffect(() => {
+  //   setValue("adult", adult);
+  //   setValue("child", child);
+  //   setValue("pet", pet);
+  // }, [adult, child, pet, setValue]);
 
 
   return(
