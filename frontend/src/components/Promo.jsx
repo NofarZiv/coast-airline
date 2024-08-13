@@ -1,14 +1,15 @@
 import '../styles/Promo.css';
 
-
 const Promo = (props) => {
+  const { name, image } = props;
 
-const { name } = props;
-
-  return(
-    <span className="item">{name}</span>
-  )
+  return (
+    <div className="promo-item">
+      <img src={image} alt={name} className="promo-image" />
+      <h3 className="promo-title">{name}</h3>
+    </div>
+  );
 }
 
-
 export default Promo;
+

@@ -13,8 +13,8 @@ const Select = (props) => {
 
   return (
     <div>
-      <input placeholder="Passenger" onClick={onClickPassenger} >
-      </input>
+      <button className='passenger-button' onClick={onClickPassenger} > Passenger
+      </button>
       {isOpen && <PassengerModal onClickPassenger={onClickPassenger} register={register} errors={errors} setValue={setValue} />}
     </div>
 

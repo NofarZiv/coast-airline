@@ -2,6 +2,8 @@
   width: 100%;
   margin: 0;
   padding: 0;
+  font-family: 'Roboto', sans-serif; /* Apply Roboto font */
+  background-color: antiquewhite;
 }
 
 .search-wrapper {
@@ -13,4 +15,17 @@
   .search-wrapper {
     margin-top: -1rem; /* Adjust for mobile view */
   }
+}
+
+
+.promo-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  gap: 200px; /* Space between items */
+  justify-content: center; /* Centers the grid items horizontally */
+  align-items: center; /* Centers the grid items vertically (if they exceed container height) */
+  max-width: 1200px; /* Optional: Adjust max-width to fit larger items */
+  margin: 0 auto; /* Center the grid container within its parent */
+  margin-top: 100px;
+  margin-bottom: 100px;
 }
