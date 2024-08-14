@@ -28,10 +28,10 @@
 
 .trip-summary > div {
   width: 48%;
-  border: 2px solid #007bff;
+  border: 2px solid #f3a093;
   border-radius: 10px;
   padding: 15px;
-  background-color: #f0f8ff;
+  background-color: #f7edeb;
 }
 
 .trip-summary span,
@@ -46,7 +46,7 @@
   width: 100%;
   padding: 10px;
   margin-top: 15px;
-  background-color: #007bff;
+  background-color: #f3a093;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -54,15 +54,15 @@
 }
 
 .trip-summary button:hover {
-  background-color: #0056b3;
+  background-color: #f17a68;
 }
 
 
 .payment-summary {
-  border: 2px solid #28a745;
+  border: 2px solid #f5ec6b;
   border-radius: 10px;
   padding: 20px;
-  background-color: #e9f9e9;
+  background-color: #fcfbe5;
   margin-bottom: 20px;
 }
 
@@ -76,7 +76,7 @@
   display: block;
   width: 100%;
   padding: 15px;
-  background-color: #ffc107;
+  background-color: #63b5e4;
   color: #333;
   font-size: 18px;
   font-weight: bold;
@@ -89,7 +89,7 @@
 }
 
 .next-button:hover {
-  background-color: #e0a800;
+  background-color: #27d1ba;
 }
 
 

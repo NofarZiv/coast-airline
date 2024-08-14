@@ -4,14 +4,14 @@
   width: 98%;
   padding: 0 20px; /* Optional: add horizontal padding for spacing */
   box-sizing: border-box;
-  background: #ffffff;
+  background: #41C9E2;
   border-radius: 12px;
   border: 1px solid #f3f5f7; /* Border color to match the theme */
   padding: 30px;
   margin-bottom: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slight shadow for a lifted look */
   margin-inline: auto;
-  background-color: rgb(182, 201, 230);
+  background-color: #f3a093(182, 201, 230);
   position: relative;
 }
 
@@ -39,13 +39,13 @@
 .passenger-section select {
   width: calc(90% - 24px);
   padding: 12px;
-  border: 1px solid #ccc;
+  border: 1px solid #ccc8c8;
   border-radius: 25px; /* High value for fully rounded fields */
   font-size: 16px;
   margin-bottom: 13px;
   display: block;
   box-sizing: border-box; /* Ensure padding is included in width */
-  background-color: #f9f9f9; /* Light background for inputs */
+  background-color: #ebeaea; /* Light background for inputs */
   color: black
   
 }

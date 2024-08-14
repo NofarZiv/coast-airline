@@ -8,7 +8,6 @@ const Seats = (props) => {
   const { setSeatDeparture, setSeatReturn, handleSeatsSelection, seatDeparture, seatReturn } = props;
 
   const [isDeparture, setIsDeparture] = useState(true);
-
  
   
   const onSelectedSeat = (seat) => {
@@ -43,8 +42,10 @@ const Seats = (props) => {
       <div className="buttons-container">
       <div id="cloud1"></div>
       <div id="cloud2"></div>
-      <button className="seats-button" onClick={handleToggle} disabled={isDeparture}>Departure</button>
-      <button className="seats-button" onClick={handleToggle} disabled={!isDeparture}>Return</button>
+      <div className="seats-button-group">
+      <button className={`seats-button ${isDeparture ? 'selected' : ''}`} onClick={handleToggle} disabled={isDeparture}>Departure</button>
+      <button className={`seats-button ${!isDeparture ? 'selected' : ''}`} onClick={handleToggle} disabled={!isDeparture}>Return</button>
+      </div>
       <Seat
         key={isDeparture ? 'departure' : 'return'}
         onSelectedSeat={onSelectedSeat} selectedSeat={isDeparture ? seatDeparture : seatReturn}

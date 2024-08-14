@@ -1,5 +1,5 @@
 .navbar {
-  background-color: #61cbe6; /* Blue color */
+  background-color: #78bce9; /* Blue color */
   width: 100%;
   height: 80px; /* Decent height for a navbar */
   display: flex;
@@ -10,6 +10,7 @@
   left: 0;
   z-index: 1000;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+
 }
 
 .container {

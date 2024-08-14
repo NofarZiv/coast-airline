@@ -14,8 +14,8 @@
   z-index: 1;
   padding-left: 10px;
   font-family: 'Dancing Script', cursive;
-  font-size: 7em;
-  color: blue;
+  font-size: 4em;
+  color: #ec8587(218, 80, 46);
 }
 
 .form-button-container {
@@ -25,9 +25,9 @@
 }
 
 .form-button {
-  display: inline-block;
+  /* display: inline-block;
   padding: 10px 20px;
-  background-color: aqua;
+  background-color: #63b5e4;
   color: #131112;
   text-decoration: none;
   border-radius: 5px;
@@ -36,9 +36,21 @@
   margin-top: 20px;
   position: static; 
   bottom: 0; /* Distance from the bottom */
-  left: 0; /* Distance from the right */
+  /* left: 0; */
+
+  padding: 0.75rem 1.5rem;
+  margin-top: 20px;
+    font-size: 1rem;
+    background-color: #63b5e4;
+    color: black;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: static;
 }
 
-.button:hover {
-  background-color: #0056b3;
+.form-button:hover {
+  background-color: #27d1ba;
 }
