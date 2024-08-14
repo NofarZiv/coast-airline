@@ -59,6 +59,7 @@ def create_flights(start_date, end_date)
       DESTINATION_CITIES.each do |destination|
         ['06:00', '12:00', '17:30'].each do |departure_time|
           flight_number = generate_flight_number(flight_index)
+          arrival_time = (Time.parse(departure_time) + 3.hours).strftime('%H:%M')
           flights << {
             aircraft: Aircraft.order('RANDOM()').first,
             flight_number: flight_number,
@@ -70,7 +71,7 @@ def create_flights(start_date, end_date)
             destination_airport: destination,
             arrival_date: date,
             arrival_terminal: 'B1',
-            arrival_time: (Time.parse(departure_time) + 3.hours).strftime('%H:%M'),
+            arrival_time: arrival_time,
             flight_duration: 180,
             flight_price: rand(200..500).to_f,
             wifi_available: [true, false].sample
@@ -86,12 +87,18 @@ end
 
 # Create flights for the specified date range
 departing_flights = create_flights(Date.new(2024, 9, 1), Date.new(2024, 9, 30))
+
+# Generate return flights based on departing flights
 return_flights = departing_flights.map do |flight|
+  return_departure_time = (Time.parse(flight[:arrival_time]) + 1.hour).strftime('%H:%M')
+  return_arrival_time = (Time.parse(return_departure_time) + 3.hours).strftime('%H:%M')
+
   flight.merge(
     departure_date: flight[:departure_date] + 1.day,
-    departure_time: flight[:arrival_time],
+    departure_time: return_departure_time,
     origin_airport: flight[:destination_airport],
     destination_airport: flight[:origin_airport],
+    arrival_time: return_arrival_time,
     flight_number: generate_flight_number(departing_flights.size + flight[:flight_number].gsub('CA', '').to_i - 1)
   )
 end

@@ -82,10 +82,12 @@
       <% if @passenger_info[:pets].present? %>
         <div class="section-title">Pets</div>
         <div class="pet-info">
-          <% @passenger_info[:pets].each do |pet| %>
+          <% @passenger_info[:pets].each_with_index do |pet, index| %>
             <div><strong>Pet Name:</strong> <%= pet[:pet_name] %></div>
             <div><strong>Gender:</strong> <%= pet[:pet_gender].capitalize %></div>
             <div><strong>Species:</strong> <%= pet[:species].capitalize %></div>
+            <div><strong>Seat (Departure):</strong> <%= @seatDeparture[@passenger_info[:adults].size + (@passenger_info[:children]&.size || 0) + index] %></div>
+            <div><strong>Seat (Return):</strong> <%= @seatReturn[@passenger_info[:adults].size + (@passenger_info[:children]&.size || 0) + index] %></div>
             <br>
           <% end %>
         </div>
