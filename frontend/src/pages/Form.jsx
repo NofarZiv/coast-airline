@@ -19,7 +19,7 @@ const Form = (props) => {
       index={index}
       register={register}  
       errors={errors} 
-      passengerType={`adult ${index + 1}`} 
+      passengerType={`Adult ${index + 1}`} 
       type={"adults"}
     />
   ))
@@ -30,7 +30,7 @@ const Form = (props) => {
       index={index}
       register={register} 
       errors={errors} 
-      passengerType={`child ${index + 1}`} 
+      passengerType={`Child ${index + 1}`} 
       type={"children"}
     />
   ))
@@ -41,7 +41,7 @@ const Form = (props) => {
       index={index}
       register={register} 
       errors={errors} 
-      passengerType={`pet ${index + 1}`}
+      passengerType={`Pet ${index + 1}`}
       type={"pets"}
     />
   ))

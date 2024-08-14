@@ -26,6 +26,8 @@ function App() {
 
   console.log(formData)
   console.log(email)
+  console.log(seatDeparture)
+  console.log(seatReturn)
   
   const navigate = useNavigate()
 

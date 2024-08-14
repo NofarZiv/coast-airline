@@ -128,7 +128,7 @@ const Search = (props) => {
             <article className='passenger-article' >
               <p
                 onClick={() => setSelection('adult')}
-                className={selection === 'adult' ? 'selected' : ""}>Adults - {adult}
+                className={selection === 'adult' ? 'selected' : ""}>Adults:  {adult}
               </p>
               <input
                 type="hidden"
@@ -137,7 +137,7 @@ const Search = (props) => {
               />
               <p
                 onClick={() => setSelection('child')}
-                className={selection === 'child' ? 'selected' : ""}>Child - {child}</p>
+                className={selection === 'child' ? 'selected' : ""}>Child:  {child}</p>
               <input
                 type="hidden"
                 value={child}
@@ -145,7 +145,7 @@ const Search = (props) => {
               />
               <p
                 onClick={() => setSelection('pet')}
-                className={selection === 'pet' ? 'selected' : ""}>Pet - {pet}</p>
+                className={selection === 'pet' ? 'selected' : ""}>Pet:  {pet}</p>
               <input
                 type="hidden"
                 value={pet}
