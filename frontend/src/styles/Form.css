@@ -13,7 +13,7 @@
   position: relative;
   z-index: 1;
   padding-left: 10px;
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Roboto', sans-serif; /* Apply Roboto font */
   font-size: 4em;
   color: #ec8587(218, 80, 46);
 }

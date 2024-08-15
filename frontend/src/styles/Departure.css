@@ -21,8 +21,9 @@
   margin: 0 0 0.5em 0;;
   padding: 25px;
   font-size: 40px;
-  font-weight: bold;
+  /* font-weight: bold; */
   text-align: center;
+  font-family: 'Roboto', sans-serif; /* Apply Roboto font */
 }
 
 .depature-link-button {
