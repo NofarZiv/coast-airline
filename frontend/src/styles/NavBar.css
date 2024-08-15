@@ -1,37 +1,46 @@
 .navbar {
-  background-color: #78bce9; /* Blue color */
+  background-color: #78bce9;
   width: 100%;
-  height: 80px; /* Decent height for a navbar */
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: fixed; /* Stays constant through all pages */
+  height: 80px;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 0 20px;
 }
 
 .container {
+  position: relative;
   width: 100%;
-  max-width: 1200px; /* Optional: Max width for better layout on large screens */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
 }
 
 .top-nav-bar__logo {
   font-size: 24px;
   font-weight: bold;
   color: #ffffff;
+  position: absolute;
+  left: 0; /* Position logo to the right */
+  margin-left: -12em;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.nav-elements {
+  position: absolute;
+  right: 0; /* Position links to the left */
+  margin-right: -14em;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .nav-elements ul {
   list-style-type: none;
   display: flex;
-  gap: 20px; /* Space between navigation items */
+  gap: 20px;
   margin: 0;
   padding: 0;
 }
@@ -49,13 +58,12 @@
 }
 
 .nav-elements ul li a:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+  background-color: #0056b3;
 }
 
 /* Optional: Add active class for the current page */
 .nav-elements ul li a.active {
   background-color: #0056b3;
 }
-
 
 
