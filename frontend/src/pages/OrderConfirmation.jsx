@@ -20,7 +20,7 @@ useEffect(() => {
     <div className="order-confirmation-container">
     <div className="order-confirmation">
       <h1>Thank you for your order</h1>
-      <p>An email confirmation has been sent to {email} with all your flight details.
+      <p>An email confirmation has been sent to you {email} with all your flight details.
       Thank you for choosing us for your vacation needs.
       </p>
       <p>
