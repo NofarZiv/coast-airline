@@ -5,7 +5,6 @@ Coast Airline is a comprehensive web application designed to simulate the operat
 ## Features
 - Flight Search & Booking: Users can search for flights based on origin, destination, and dates, and book flights with real-time availability.
 - Payment Integration: The application integrates with Stripe for secure payment processing.
-- Admin Dashboard: Admins can manage flights, aircraft, and other essential data through a dedicated dashboard.
 - Email Confirmations: Users receive confirmation emails after booking a flight, complete with detailed flight information.
 - Mock Data: The application uses mock data to simulate flight schedules, seat availability, and pricing for destinations primarily in the Caribbean.
 
