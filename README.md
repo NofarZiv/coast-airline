@@ -1,6 +1,6 @@
 # Coast Airline
 
-Coast Airline is a comprehensive web application designed to simulate the operations of a fictional airline. The project involves building both a front-end and back-end to manage flights, bookings, payments, and more. The application is structured to provide a seamless experience for users searching for and booking flights, and it includes robust administrative functionality for managing flights and inventory.
+Coast Airline is a comprehensive web application designed to simulate the operations of a fictional airline. The project involves building both a front-end and back-end to manage flights, bookings, payments, and more. The application is structured to provide a seamless experience for users searching for and booking flights, and specializes in accommodating pets for travel.
 
 ## Features
 - Flight Search & Booking: Users can search for flights based on origin, destination, and dates, and book flights with real-time availability.
